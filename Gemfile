@@ -58,3 +58,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Bootstrap
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'yt', '~> 0.28.0'
+
+group :development do 
+  gem 'sidekiq'
+end 
