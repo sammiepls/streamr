@@ -1,0 +1,9 @@
+body {
+  // background: $dark;
+  // background: linear-gradient(to top, $dark, $red);
+  background: linear-gradient(to top, rgba($dark,.9), rgba($orange, .9)),url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  font-family: 'Nunito',sans-serif;
+}
