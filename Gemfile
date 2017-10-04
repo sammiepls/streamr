@@ -63,3 +63,5 @@ gem 'yt', '~> 0.28.0'
 group :development do 
   gem 'sidekiq'
 end 
+
+gem 'redis'

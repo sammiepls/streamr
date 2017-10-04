@@ -7,8 +7,9 @@ class PagesController < ApplicationController
   		VideoJob.perform_now(count)
   		count -= 1 
   	end
-
-  	videos =  $redis.get("categories")
+  	$redis.get("test_key")
+  	byebug 
+  	# videos =  $redis.get("categories")
    #  if categories.nil?
    #    categories = Category.all.to_json
    #    $redis.set("categories", categories)
