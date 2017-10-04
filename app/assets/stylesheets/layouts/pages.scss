@@ -1,9 +1,26 @@
 body {
-  // background: $dark;
   // background: linear-gradient(to top, $dark, $red);
-  background: linear-gradient(to top, rgba($dark,.9), rgba($orange, .9)),url("hero.jpg");
+  background: url("bg.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
   font-family: 'Nunito',sans-serif;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.user-pic {
+  border-radius: 50%;
+  max-width: 75px;
+  border-radius: 50%;
+}
+.user-details {
+  color: #fff;
+}
+.stream-details {
+  color: #fff;
+  p {
+    margin-bottom: .5rem;
+  }
 }

@@ -1,13 +1,19 @@
 <main class="container my-3">
-  <div class="row">
-    <div class="col-6">
-      <h1>My username</h1>
-      <p>Streaming "Random Video Name"</p>
+  <div class="row py-3">
+    <div class="col-4">
+      <div class='user'>
+        <%= image_tag 'anonymous.jpg', class:"user-pic", alt:"User Profile Picture"%>
+        <div class='user-details ml-3'>
+          <h1>username</h1>
+          <p>10</p>
+        </div>
+      </div>
     </div>
-    <div class="col-6">
-      <button class="subscribe btn">
-        Subscribe
-      </button>
+    <div class="col-8">
+      <div class='stream-details'>
+        <p>is now streaming</p>
+        <h2>Title of Stream</h2>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -19,7 +25,7 @@
   </div>
   <div class="row">
     <div class="col-8">
-      <div class="progress my-3">
+      <div class="progress m-3">
         <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </div>
