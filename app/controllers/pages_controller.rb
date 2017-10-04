@@ -6,6 +6,13 @@ class PagesController < ApplicationController
   	y.each do |i|
   		VideoJob.perform_now(count)
   		count -= 1 
-  	end 
+  	end
+
+  	categories =  $redis.get("categories")
+    if categories.nil?
+      categories = Category.all.to_json
+      $redis.set("categories", categories)
+    end
+  	     
   end
 end
