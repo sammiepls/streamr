@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004093850) do
+ActiveRecord::Schema.define(version: 20171005065121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ahoy_events", force: :cascade do |t|
+    t.integer "visit_id"
+    t.string "name"
+    t.jsonb "properties"
+    t.datetime "time"
+    t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time"
+    t.index ["visit_id", "name"], name: "index_ahoy_events_on_visit_id_and_name"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider"
@@ -26,6 +35,14 @@ ActiveRecord::Schema.define(version: 20171004093850) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.string "visit_token"
+    t.string "visitor_token"
+    t.string "ip"
+    t.datetime "started_at"
+    t.index ["visit_token"], name: "index_visits_on_visit_token", unique: true
   end
 
 end
