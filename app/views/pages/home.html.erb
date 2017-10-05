@@ -21,15 +21,33 @@
     </div>
     <div class="col-4">
       <div class='row'>
-        <div class='col-6'>
+        <div class='col-6'><!-- Subscribe button -->
           <%= button_tag(type:'button', class:"btn btn-subscribe") do %>
             <i class='fa fa-fw fa-plus'></i>Subscribe
           <% end %>
-        </div>
-        <div class='col-6'>
+        </div><!-- Subscribe button end -->
+        <div class='col-6'> <!-- Timer -->
           <div id='timer' class="btn">
             <p>Count<br>Down</br></p>
             <strong>1:00</strong>
+          </div>
+        </div><!-- Timer End-->
+      </div>
+      <div class='row mt-4'>
+        <div class='col-12'>
+          <p>Hit keep if you like what you see!</p>
+        </div>
+        <div class='col-4'>
+          <%= button_tag(type:'button', class:"btn btn-keep") do %>
+            <i class='fa fa-fw fa-thumbs-up'></i>Keep
+          <% end %>
+        </div>
+        <div class='col-8'>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              <span class="sr-only">70% Complete</span>
+              <div id="percent" class='d-flex h-100 justify-content-center align-items-center'>70%</div>
+            </div>
           </div>
         </div>
       </div>
