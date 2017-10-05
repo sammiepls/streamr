@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 	def create
 		user = User.from_omniauth(request.env["omniauth.auth"])
 		session[:user_id] = user.uid
+		@account = Yt::Account.new access_token: user.oauth_token
 		redirect_to root_path
 	end
 
