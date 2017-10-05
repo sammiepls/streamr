@@ -1,6 +1,57 @@
-<main class="container">
-  <div class="row">
-
-
+<main class="container my-3">
+  <div class="row py-3 align-items-center">
+      <div class='user'>
+        <div class='user-avatar-wrapper'>
+          <%= image_tag 'anonymous.jpg', class:"user-avatar", alt:"User Profile Picture"%>
+          <span class='pt-2'><i class='fa fa-eye fa-fw'></i><p id='current-viewers'>10</p></span>
+        </div>
+        <div class='user-details-wrapper ml-5'>
+          <h1 class='h2'>username</h1>
+          <p>is now streaming</p>
+          <h2>Title of Stream</h2>
+        </div>
+      </div>
   </div>
+
+  <div class="row">
+    <div class="col-8">
+      <div class="stream-container" style='background:black; height:50vh;'>
+        Video goes here.
+      </div>
+    </div>
+    <div class="col-4">
+      <div class='row'>
+        <div class='col-6'><!-- Subscribe button -->
+          <%= button_tag(type:'button', class:"btn btn-subscribe") do %>
+            <i class='fa fa-fw fa-plus'></i>Subscribe
+          <% end %>
+        </div><!-- Subscribe button end -->
+        <div class='col-6'> <!-- Timer -->
+          <div id='timer' class="btn">
+            <p>Count<br>Down</br></p>
+            <strong>1:00</strong>
+          </div>
+        </div><!-- Timer End-->
+      </div>
+      <div class='row mt-4'>
+        <div class='col-12'>
+          <p>Hit keep if you like what you see!</p>
+        </div>
+        <div class='col-4'>
+          <%= button_tag(type:'button', class:"btn btn-keep") do %>
+            <i class='fa fa-fw fa-thumbs-up'></i>Keep
+          <% end %>
+        </div>
+        <div class='col-8'>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              <span class="sr-only">70% Complete</span>
+              <div id="percent" class='d-flex h-100 justify-content-center align-items-center'>70%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </main>
