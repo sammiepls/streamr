@@ -1,15 +1,15 @@
 <main class="container my-3">
   <div class="row py-3 align-items-center">
       <div class='user'>
-        <%= image_tag 'anonymous.jpg', class:"user-pic", alt:"User Profile Picture"%>
-        <div class='user-details ml-3'>
-          <h1>username</h1>
-          <p>10</p>
+        <div class='user-avatar-wrapper'>
+          <%= image_tag 'anonymous.jpg', class:"user-avatar", alt:"User Profile Picture"%>
+          <span><i class='fa fa-eye fa-fw'></i><p id='current-viewers'>10</p></span>
         </div>
-      </div>
-      <div class='stream-details ml-5'>
-        <p>is now streaming</p>
-        <h2>Title of Stream</h2>
+        <div class='user-details-wrapper ml-5'>
+          <h1 class='h2'>username</h1>
+          <p>is now streaming</p>
+          <h2>Title of Stream</h2>
+        </div>
       </div>
   </div>
 

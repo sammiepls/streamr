@@ -10,14 +10,15 @@ body {
   display: flex;
   align-items: center;
 }
-.user-pic {
+.user-avatar {
   border-radius: 50%;
   max-width: 100px;
   border-radius: 50%;
 }
-.user-details,.stream-details {
+
+.user-details-wrapper {
   color: #fff;
-  p {
-    margin-bottom: .5rem;
+  .h2,p {
+    margin-bottom: 0.3rem;
   }
 }
