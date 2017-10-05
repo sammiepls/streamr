@@ -1,7 +1,7 @@
 body {
-  background: linear-gradient(to top, rgba(48, 48, 48,.3), rgba($dark,.3)),url("pattern.png");
-  background:url("diagmonds.png");
-  background:url("pattern.png");
+  background: linear-gradient(to top, rgba(14, 14, 14, 0.3), rgba(45, 34, 40, 0.3)),url("pattern.png");
+  // background:url("diagmonds.png");
+  // background:url("pattern.png");
   background-position: center;
   height: 100vh;
   font-family: 'Nunito',sans-serif;
@@ -14,6 +14,7 @@ body {
   border-radius: 50%;
   max-width: 100px;
   border-radius: 50%;
+  box-shadow: $shadow;
 }
 .user-avatar-wrapper {
   display: flex;
@@ -33,12 +34,14 @@ body {
     margin-bottom: 0.3rem;
   }
 }
-.btn-primary {
+.btn-subscribe {
+  width: 100%;
   color: #fff;
   background-color: $red;
   border:0;
   text-transform: uppercase;
   padding: 1.2rem;
+  box-shadow: $shadow;
   cursor: pointer;
   &:hover,&:focus {
     background-color: darken( $red, 20% )
@@ -54,6 +57,7 @@ body {
   align-items: center;
   text-transform: uppercase;
   justify-content: space-around;
+  box-shadow: $shadow;
   p {
     margin-bottom: 0;
   }
