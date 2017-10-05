@@ -65,3 +65,5 @@ group :development do
 end 
 
 gem 'redis'
+gem 'redis-namespace'
+gem 'jquery-rails'

@@ -3,17 +3,11 @@ class PagesController < ApplicationController
   def home
   	count = 130 
   	y = (1..5).to_a
-  	y.each do |i|
-  		VideoJob.perform_now(count)
-  		count -= 1 
-  	end
-  	$redis.get("test_key")
-  	byebug 
-  	# videos =  $redis.get("categories")
-   #  if categories.nil?
-   #    categories = Category.all.to_json
-   #    $redis.set("categories", categories)
-   #  end
-  	     
+	count -= 1 
+ 	VideoJob.perform_now(count)
+  	@videos = $redis.get("test_key")    
   end
+
+  def update_video 
+  end 
 end

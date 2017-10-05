@@ -1,12 +1,6 @@
 <main class="container">
   <div class="row">
-
-	<% @id.each do |i| %>
-
-		<iframe width="420" height="315" src="https://www.youtube.com/embed/<%= i.id %>?autoplay=1&start=944"></iframe>
-
-	<% end %>
-
-
+		<iframe class='view' width="1000" height="500" src="https://www.youtube.com/embed/<%= @videos %>?autoplay=1&start=944"></iframe>
+		<button id='executer-button'>Change</button>
   </div>
 </main>
