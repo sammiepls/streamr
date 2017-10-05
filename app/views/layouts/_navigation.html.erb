@@ -9,14 +9,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class='navbar-nav ml-auto'>
-        <li class="navbar-item">
-          <div class: "nav-link" align="center"><%= link_to "Sign in to Youtube", "/user/sign_up/yt" %></div>
-          <%#= link_to 'Sign out', sign_out_path, class: "nav-link", method: :delete %>
-        </li>
-        <li class="navbar-item">
-          Login
-        <%#= link_to 'Sign in', sign_in_path, class: "nav-link" %>
-        </li>
+        <% if logged_in? %>
+          <span>
+            <%= current_user.name %> &nbsp;
+            <%= link_to "(logout)", logout_path, class: "navbar-item" %>
+          </span>
+        <% else %>
+            <%= link_to "Login", login_path, class: "navbar-item" %>
+          <% end %>
         <li class="navbar-item">
           Sign up
         <%#= link_to 'Sign up', sign_up_path, class: "nav-link" %>
