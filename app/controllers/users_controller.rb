@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-<<<<<<< HEAD
   # def create
   #   @user_authentication = Yt::Account.new(scopes: 'userinfo.email', redirect_uri: ENV['GOOGLE_REDIRECT_URIS']).authentication_url
   #   # @user = User.new(email, etc)
@@ -10,13 +9,11 @@ class UsersController < ApplicationController
   def subscribe
 
     session[:channel_id] = subscribe_params[:channel_id]
-=======
   def create
     @user_authentication = Yt::Account.new(scopes: 'userinfo.email', redirect_uri: ENV['GOOGLE_REDIRECT_URIS']).authentication_url
     # @user = User.new(email, etc)
     redirect_to root_path
   end
->>>>>>> linking user info to their youtube acct
 
     if !(current_user)
       redirect_to login_path and return
