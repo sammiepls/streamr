@@ -16,23 +16,23 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
-	console.log('hi');
-});
 
-// console.log('hi')
-// var callExecuter=function(){
-//   $.ajax({
-//     type:'GET',
-//     url:'',
-//     data: { document.getElementsByClass("view"); 
-//           },
-//     success:function(){
-     
-//       $(this).addClass('done');
-//     }
-//   });
-// }
+setInterval(function(){
+
+// var callExecuter
+	$('.video').remove()
+	  $.ajax({
+	    type:'GET',
+	    url:'/update',
+	    dataType: 'json',
+	    success: function(data){
+	    	console.log("sucess");
+	    	$('.row').append("\
+	    	<iframe class='video' id= "+ data.data[0] +" width='1000' \
+	    	height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
+	    },
+	  });
+}, 10000);
 
 
 

@@ -1,6 +1,7 @@
 <main class="container">
   <div class="row">
-		<iframe class='view' width="1000" height="500" src="https://www.youtube.com/embed/<%= @videos %>?autoplay=1&start=944"></iframe>
-		<button id='executer-button'>Change</button>
+		<iframe class="video" id=<%= @params[0] %> width="1000" height="500" src="https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1]  %>" allowfullscreen></iframe>
+		<!-- <%= button_to "Change", update_path, remote: true, method: :get %> -->
+<!-- 		<button id='executer-button'>Change</button> -->
   </div>
 </main>
