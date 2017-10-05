@@ -3,6 +3,14 @@
   color: $red;
   padding: 1rem;
   box-shadow: 0px 3px 4px 0px rgba($dark, 0.7);
+  a {
+    color: $red;
+    transition: .3s all ease;
+    &:hover,&:focus {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
 .logo {
   width: 80%;
