@@ -4,19 +4,30 @@ class PagesController < ApplicationController
     # Testing Ahoy Vists
     ahoy.track_visit
     ahoy.track "btn-keep", title: "Keep playing"
+  	count = 130
+  	@videos = video(count)
+  	# byebug
+  end
 
-  	# count = 130
-  	# y = (1..5).to_a
-  	# y.each do |i|
-  	# 	VideoJob.perform_now(count)
-  	# 	count -= 1
+  def update_video
+  	count = rand(80..130)
+  	@videos = video(count)
+  	# byebug
+  	# p "run================================="
+  	# respond_to do |format|
+  	# 	format.js
   	# end
+  	json_content = {data: @params}
+  	render json: json_content
+  end
 
-  	# videos =  $redis.get("categories")
-   #  if categories.nil?
-   #    categories = Category.all.to_json
-   #    $redis.set("categories", categories)
-   #  end
+  def video(count)
+  	@params = []
+	VideoJob.perform_later(count)
+	# byebug
+ 	@params << $redis.get("vid_id")
+ 	@params << $redis.get("vid_duration")
 
+ 	return @params
   end
 end
