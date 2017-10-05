@@ -9,4 +9,7 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(uid: session[:user_id]) if logged_in?
   end
+
+  helper_method :current_user
+  
 end
