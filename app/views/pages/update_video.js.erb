@@ -1,0 +1,5 @@
+console.log("sucess")
+$('.video').remove()
+$('.row').append("\
+	<iframe class='video' id=<%= @videos %> width='1000' \
+	height='500' src='https://www.youtube.com/embed/<%= @videos %>?autoplay=1&start=944'></iframe> ")
