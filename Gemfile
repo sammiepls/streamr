@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 # Google Omniauth
 gem 'omniauth-google-oauth2'
+# Youtube API gem
+gem 'yt', '~> 0.28.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
