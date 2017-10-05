@@ -25,6 +25,11 @@
         <div class='col-6'><!-- Subscribe button -->
           <%= button_tag(type:'button', class:"btn btn-subscribe") do %>
             <i class='fa fa-fw fa-plus'></i>Subscribe
+            <% if current_user %>
+              <%= link_to t('.subscribe'), subscribe_path('UCgnZ1NagHZ1SSOEz8G0KAFw') %>
+            <% else %>
+              <%= link_to t('.subscribe'), login_path  %>
+            <% end %>
           <% end %>
         </div><!-- Subscribe button end -->
         <div class='col-6'> <!-- Timer -->
