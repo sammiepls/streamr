@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
 
   def home
+
   	count = 130 
   	@videos = video(count)
+
   end
 
   def update_video

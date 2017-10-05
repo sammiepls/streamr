@@ -4,7 +4,7 @@ class VideoJob < ApplicationJob
   def perform(count)
    videos = Yt::Collections::Videos.new
    @vid = videos.where(order: 'viewCount', q: 'dota2stream').take(count).last
-   # asd asd -asdasd asd
+   asd asd -asdasd asd
    @id = @vid.id 
    @duration = @vid.duration/2 
    $redis.set("vid_id", @id)

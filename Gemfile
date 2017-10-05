@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 
 gem 'yt', '~> 0.28.0'
+# Google Omniauth
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,6 +60,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Bootstrap
 gem 'bootstrap', '~> 4.0.0.beta'
+
+# Fontawesome
+gem 'font-awesome-sass', '~> 4.7.0'
+
+# YT gem
 gem 'yt', '~> 0.28.0'
 
 group :development do 

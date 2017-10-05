@@ -1,7 +1,20 @@
 .navbar {
-  background: $dark;
-  color: $orange;
+  background: rgba($dark,.5);
+  color: $red;
+  padding: 1rem;
+  box-shadow: 0px 3px 4px 0px rgba($dark, 0.7);
+  a {
+    color: $red;
+    transition: .3s all ease;
+    &:hover,&:focus {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
 .logo {
-  color: #fff;
+  width: 80%;
+}
+.navbar-nav li + li {
+  margin-left: 1.5rem;
 }

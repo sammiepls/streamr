@@ -1,27 +1,32 @@
-<nav class="navbar navbar-expand-lg fixed-top ">
-  <%= link_to root_path do %>
-      <% image_tag '', class: "logo", alt:"Streamr"%>
-  <% end %>
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class='container'>
+    <%= link_to root_path do %>
+        <% image_tag 'streamr_logo.svg', class: "logo", alt:"Streamr"%>
+    <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <i class='fa fa-bars'></i>
-  </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class='fa fa-bars'></i>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class='navbar-nav ml-auto'>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class='navbar-nav ml-auto'>
+
+        <% if logged_in? %>
         <li class="navbar-item">
-          <div class: "nav-link" align="center"><%= link_to "Sign in to Youtube", "/user/sign_up/yt" %></div>
-          <%#= link_to 'Sign out', sign_out_path, class: "nav-link", method: :delete %>
-        </li>
-        <li class="navbar-item">
-          Login
-        <%#= link_to 'Sign in', sign_in_path, class: "nav-link" %>
-        </li>
-        <li class="navbar-item">
-          Sign up
-        <%#= link_to 'Sign up', sign_up_path, class: "nav-link" %>
-        </li>
-    </ul>
+            <%= current_user.name %>
+            <%= link_to "Logout", logout_path, class: "navbar-item" %>
+          </li>
+          <% else %>
+          <li class="navbar-item">
+            Become a streamr
+          <%#= link_to 'Become a streamr', sign_up_path, class: "nav-link" %>
+          </li>
+          <li class="navbar-item">
+            <%= link_to "Login", login_path, class: "navbar-item" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
   </div>
-
 </nav>
