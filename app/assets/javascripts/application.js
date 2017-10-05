@@ -36,7 +36,7 @@ setInterval(function(e){
 	    	height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
 	    },
 	  });
-}, 15000);
+}, 60000);
 
 
 
