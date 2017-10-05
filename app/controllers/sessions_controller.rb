@@ -9,13 +9,13 @@ class SessionsController < ApplicationController
    	session[:user_id] = user.id
    	flash[:success] = "Welcome, #{user.name}"
 
-      if user.token
+      if user.oauth_token
 		    user.update_token(auth_hash)
 		  end
 
 		    #  @account = Yt::Account.new access_token: user.token
 		    #  @channel = Yt::Channel.new id: @account.channel.id, auth: @account
-		    #  redirect_to root_url(@account, @channel)
+		     redirect_to root_path
 	end
 
 	def destroy

@@ -13,4 +13,10 @@ class User < ApplicationRecord
 		@user = user
 		end
 	end
+
+	def update_token(auth_hash)
+			self.oauth_token = auth_hash["credentials"]["token"]
+			self.save
+ 	end
+
 end
