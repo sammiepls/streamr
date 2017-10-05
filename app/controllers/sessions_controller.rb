@@ -12,9 +12,6 @@ class SessionsController < ApplicationController
 		if user.oauth_token
 		    user.update_token(auth_hash)
 		end
-
-		    #  @account = Yt::Account.new access_token: user.token
-		    #  @channel = Yt::Channel.new id: @account.channel.id, auth: @account
 		redirect_to root_path
 	end
 
