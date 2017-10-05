@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   def home
     # Testing Ahoy Vists
     ahoy.track_visit
+    ahoy.track "btn-keep", title: "Keep playing"
 
   	# count = 130
   	# y = (1..5).to_a
