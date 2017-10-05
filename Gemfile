@@ -67,6 +67,12 @@ gem 'font-awesome-sass', '~> 4.7.0'
 # YT gem
 gem 'yt', '~> 0.28.0'
 
-group :development do 
+# Jquery
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
+# Ahoy
+gem 'ahoy_matey'
+
+group :development do
   gem 'sidekiq'
-end 
+end
