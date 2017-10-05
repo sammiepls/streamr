@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 
 gem 'yt', '~> 0.28.0'
+# Google Omniauth
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
