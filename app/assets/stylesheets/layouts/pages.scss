@@ -1,7 +1,5 @@
 body {
   background: linear-gradient(to top, rgba(14, 14, 14, 0.3), rgba(45, 34, 40, 0.3)),url("pattern.png");
-  // background:url("diagmonds.png");
-  // background:url("pattern.png");
   background-position: center;
   height: 100vh;
   font-family: 'Nunito',sans-serif;
@@ -89,4 +87,7 @@ body {
 #percent {
   font-weight: 600;
   font-size: 1.2rem;
+}
+.stream-container iframe{
+  width: 100%;
 }

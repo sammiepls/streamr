@@ -15,8 +15,8 @@
 
   <div class="row">
     <div class="col-8">
-      <div class="stream-container" style='background:black; height:50vh;'>
-        <iframe class='video' id=<%= @params[0] %> width='700' height='500' src='https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1] %>'></iframe>
+      <div class="stream-container"><!-- Videos -->
+        <iframe class="video" id=<%= @params[0] %> width="700" height="500" src="https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1]  %>" allowfullscreen></iframe>
       </div>
     </div>
     <div class="col-4">
