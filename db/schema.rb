@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005065121) do
+ActiveRecord::Schema.define(version: 20171005103317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20171005065121) do
     t.string "oauth_token"
     t.string "oauth_refresh_token"
     t.datetime "oauth_expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "vid_id"
+    t.integer "vid_duration"
+    t.string "vid_title"
+    t.string "vid_copy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
