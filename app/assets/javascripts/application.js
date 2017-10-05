@@ -17,22 +17,23 @@
 //= require_tree .
 
 
-setInterval(function(){
+setInterval(function(e){
 
 // var callExecuter
-	$('.video').remove()
+	  // e.preventDefault()
 	  $.ajax({
 	    type:'GET',
 	    url:'/update',
 	    dataType: 'json',
 	    success: function(data){
 	    	console.log("sucess");
-	    	$('.row').append("\
-	    	<iframe class='video' id= "+ data.data[0] +" width='1000' \
+	    	$('.video').remove()
+	    	$('.stream-container').append("\
+	    	<iframe class='video' id= "+ data.data[0] +" width='700' \
 	    	height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
 	    },
 	  });
-}, 10000);
+}, 15000);
 
 
 
