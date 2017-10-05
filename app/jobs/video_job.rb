@@ -9,6 +9,8 @@ class VideoJob < ApplicationJob
    @duration = @vid.duration/2 
    @title = @vid.title
    @copyright = @vid.infringes_copyright? 
+
+   Video.update(vid_id: @id, vid_duration: @duration, vid_title: @title, vid_copy: @copyright)
    $redis.set("vid_id", @id)
    $redis.set("vid_duration", @duration)
    $redis.set("vid_title", @title)

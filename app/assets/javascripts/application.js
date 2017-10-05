@@ -29,6 +29,7 @@ setInterval(function(e){
 	    dataType: 'json',
 	    success: function(data){
 	    	console.log("sucess");
+	    	// debugger 
 	    	$('.video').remove()
 	    	$('.stream-container').append("\
 	    	<iframe class='video' id= "+ data.data[0] +" width='700' \

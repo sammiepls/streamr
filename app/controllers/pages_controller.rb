@@ -24,7 +24,8 @@ class PagesController < ApplicationController
 	# byebug 
  	@params << $redis.get("vid_id")
  	@params << $redis.get("vid_duration")
-
+ 	@params << $redis.get("vid_title")
+ 	@params << $redis.get("vid_copy")
  	return @params 
   end 
 end
