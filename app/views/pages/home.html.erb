@@ -1,6 +1,5 @@
 <main class="container my-3">
-  <div class="row py-3">
-    <div class="col-4">
+  <div class="row py-3 align-items-center">
       <div class='user'>
         <%= image_tag 'anonymous.jpg', class:"user-pic", alt:"User Profile Picture"%>
         <div class='user-details ml-3'>
@@ -8,29 +7,21 @@
           <p>10</p>
         </div>
       </div>
-    </div>
-    <div class="col-8">
-      <div class='stream-details'>
+      <div class='stream-details ml-5'>
         <p>is now streaming</p>
         <h2>Title of Stream</h2>
       </div>
-    </div>
   </div>
+
   <div class="row">
-    <div class="col-12">
+    <div class="col-9">
       <div class="stream-container" style='background:black; height:50vh;'>
         Video goes here.
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <div class="progress m-3">
-        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-    </div>
-    <div class="col-4">
-      <h1>Timer: 1:00</h1>
+    <div class="col-3">
+      Subscribe button
     </div>
   </div>
+
 </main>

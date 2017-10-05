@@ -12,13 +12,10 @@ body {
 }
 .user-pic {
   border-radius: 50%;
-  max-width: 75px;
+  max-width: 100px;
   border-radius: 50%;
 }
-.user-details {
-  color: #fff;
-}
-.stream-details {
+.user-details,.stream-details {
   color: #fff;
   p {
     margin-bottom: .5rem;

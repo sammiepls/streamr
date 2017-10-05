@@ -1,6 +1,7 @@
 .navbar {
-  background: $dark;
+  background: rgba($dark,.5);
   color: $red;
+  padding: 1rem;
 }
 .logo {
   width: 80%;
