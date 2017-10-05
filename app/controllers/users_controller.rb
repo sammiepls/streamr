@@ -20,7 +20,6 @@ class UsersController < ApplicationController
   def subscribe_params
 
     params.permit(:channel_id)
-
   end
 
 end
