@@ -1,7 +1,7 @@
 body {
-  // background: linear-gradient(to top, $dark, $red);
-  background: url("bg.jpg");
-  background-size: cover;
+  background: linear-gradient(to top, rgba(48, 48, 48,.3), rgba($dark,.3)),url("pattern.png");
+  background:url("diagmonds.png");
+  background:url("pattern.png");
   background-position: center;
   height: 100vh;
   font-family: 'Nunito',sans-serif;
@@ -15,10 +15,49 @@ body {
   max-width: 100px;
   border-radius: 50%;
 }
-
+.user-avatar-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  i {
+    color: $red;
+  }
+  p {
+    color: #fff;
+    display: inline;
+  }
+}
 .user-details-wrapper {
   color: #fff;
   .h2,p {
     margin-bottom: 0.3rem;
+  }
+}
+.btn-primary {
+  color: #fff;
+  background-color: $red;
+  border:0;
+  text-transform: uppercase;
+  padding: 1.2rem;
+  cursor: pointer;
+  &:hover,&:focus {
+    background-color: darken( $red, 20% )
+  }
+}
+#timer {
+  width: 100%;
+  background: #201E1F;
+  border: 2px solid #E21B14;
+  color: #E21B14;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: space-around;
+  p {
+    margin-bottom: 0;
+  }
+  strong {
+    font-size: 1.8rem;
   }
 }

@@ -3,7 +3,7 @@
       <div class='user'>
         <div class='user-avatar-wrapper'>
           <%= image_tag 'anonymous.jpg', class:"user-avatar", alt:"User Profile Picture"%>
-          <span><i class='fa fa-eye fa-fw'></i><p id='current-viewers'>10</p></span>
+          <span class='pt-2'><i class='fa fa-eye fa-fw'></i><p id='current-viewers'>10</p></span>
         </div>
         <div class='user-details-wrapper ml-5'>
           <h1 class='h2'>username</h1>
@@ -14,13 +14,25 @@
   </div>
 
   <div class="row">
-    <div class="col-9">
+    <div class="col-8">
       <div class="stream-container" style='background:black; height:50vh;'>
         Video goes here.
       </div>
     </div>
-    <div class="col-3">
-      Subscribe button
+    <div class="col-4">
+      <div class='row'>
+        <div class='col-6'>
+          <%= button_tag(type:'button', class:"btn btn-primary") do %>
+            <i class='fa fa-fw fa-plus'></i>Subscribe
+          <% end %>
+        </div>
+        <div class='col-6'>
+          <div id='timer' class="btn">
+            <p>Count<br>Down</br></p>
+            <strong>1:00</strong>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
