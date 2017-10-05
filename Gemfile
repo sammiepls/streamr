@@ -65,23 +65,15 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'font-awesome-sass', '~> 4.7.0'
 
 
-group :development do 
+group :development do
   gem 'sidekiq'
-end 
+end
 
 gem 'redis'
 gem 'redis-namespace'
-
-# YT gem
-gem 'yt', '~> 0.28.0'
 
 # Jquery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 # Ahoy
 gem 'ahoy_matey'
-
-group :development do
-  gem 'sidekiq'
-end
-
