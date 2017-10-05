@@ -25,7 +25,7 @@ setInterval(function(e){
 	  // e.preventDefault()
 	  $.ajax({
 	    type:'GET',
-	    url:'/update',
+	    url:'/',
 	    dataType: 'json',
 	    success: function(data){
 	    	console.log("sucess");
