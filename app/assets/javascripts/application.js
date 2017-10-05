@@ -25,10 +25,11 @@ setInterval(function(e){
 	  // e.preventDefault()
 	  $.ajax({
 	    type:'GET',
-	    url:'/',
+	    url:'/update',
 	    dataType: 'json',
 	    success: function(data){
 	    	console.log("sucess");
+	    	// debugger 
 	    	$('.video').remove()
 	    	$('.stream-container').append("\
 	    	<iframe class='video' id= "+ data.data[0] +" width='700' \
