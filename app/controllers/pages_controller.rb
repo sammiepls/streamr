@@ -1,11 +1,14 @@
 class PagesController < ApplicationController
 
   def home
-  	# count = 130 
+    # Testing Ahoy Vists
+    ahoy.track_visit
+
+  	# count = 130
   	# y = (1..5).to_a
   	# y.each do |i|
   	# 	VideoJob.perform_now(count)
-  	# 	count -= 1 
+  	# 	count -= 1
   	# end
 
   	# videos =  $redis.get("categories")
@@ -13,6 +16,6 @@ class PagesController < ApplicationController
    #    categories = Category.all.to_json
    #    $redis.set("categories", categories)
    #  end
-  	     
+
   end
 end
