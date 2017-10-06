@@ -7,14 +7,21 @@ class UsersController < ApplicationController
   end
 
   def subscribe
-byebug
-  #channel to subscribe
-    @channel_id = subscribe_params
-  #subscriber
-    @account = Yt::Account.new access_token:  current_user.oauth_token
-  #subscribe!
-    @channel = Yt::Channel.new id: 'UCxO1tY8h1AhOz0T4ENwmpow', auth: @account
-    @channel.subscribe
+
+    session[:channel_id] = subscribe_params[:channel_id]
+
+    if !(current_user)
+      redirect_to login_path and return
+    else
+		  account = Yt::Account.new access_token: current_user.oauth_token
+      channel = Yt::Channel.new id: session[:channel_id], auth: account
+        if channel.subscribed? == false
+          channel.subscribe
+        end
+    end
+
+    session[:channel_id] = nil
+    redirect_to root_path
 
   end
 
@@ -24,4 +31,17 @@ byebug
 
   end
 
+  def authorization_params
+
+		params.permit(:code)
+
+	end
+
+  def initialize_user
+
+    Yt::Account.new(scopes: ["youtube"], redirect_uri: ENV['GOOGLE_REDIRECT_URIS']).authentication_url
+    sessions_controller = SessionsController.new
+    sessions_controller.create
+
+  end
 end
