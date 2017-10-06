@@ -13,7 +13,7 @@
 
         <% if logged_in? %>
         <li class="navbar-item">
-            <%#= current_user.name %>
+            <%= current_user.name %>
             <%= link_to "Logout", logout_path, class: "navbar-item" %>
           </li>
           <% else %>

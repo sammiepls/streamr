@@ -1,24 +1,33 @@
+function deleteChild(){
+  $('.message').first().remove();
+}
+
 
 $(document).ready(function(){
+
   $('#messages').animate({
   scrollTop: $('#messages').get(0).scrollHeight}, 1000);
+
     $("#user_button").on('click', function(e){
-      e.preventDefault();
-      name = $("#username").val();
-      $('#chat-input').show();
-      $('#chat-username').hide();
+    e.preventDefault();
+    name = $("#username").val();
+    $('#chat-username').hide();
+    $('#chat-input').show();
+    });
+
+
+      $("#messages").bind("DOMSubtreeModified",function(){
+        length = $('.message').length
+        if(length > 28){
+          deleteChild()
+          console.log('it works')
+        }
+        // if $('.message').length > 28
+        //   $('.message').deleteChild();
+      $('#messages').animate({
+      scrollTop: $('#messages').get(0).scrollHeight}, 1000);
       });
-        $("#messages").bind("DOMSubtreeModified",function(){
-        $('#messages').animate({
-        scrollTop: $('#messages').get(0).scrollHeight}, 1000);
-        console.log("hi");
-        });
+
+
+
 });
-//
-  //   last_message_container = $(".message").last();
-  //   last_message = $(this).children().last().children().html();
-  //   colon = last_message.search(/:/);
-  //   username = last_message.slice(0,colon);
-  //     colon_message = last_message.slice(colon+1, )
-  //     debugger
-  // });
