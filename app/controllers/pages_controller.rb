@@ -31,4 +31,11 @@ class PagesController < ApplicationController
   	json_content = {data: @params}
   	render json: json_content
   end
+
+  private
+
+  def keep?(total_keeps,total_visits)
+    (total_keeps / total_visits.to_f) * 100 > 50 ? true : false
+  end
+
 end
