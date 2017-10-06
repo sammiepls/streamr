@@ -3,18 +3,17 @@ class SessionsController < ApplicationController
 
 	# GET /auth/google_oauth2/callback
 	def create
-      	if user.oauth_token
-		    user.update_token(auth_hash)
-		end
 		user = User.from_omniauth(request.env["omniauth.auth"])
 		session[:user_id] = user.uid
 		@account = Yt::Account.new access_token: user.oauth_token
-		@live_id = @account.channel.videos.where(type: 'video', eventType:'live').first.id
+		live = @account.channel.videos.where(type: 'video', eventType:'live').first
+		if !live.nil?
+			@live_id = live.id
+		end
+
+
 		flash[:success] = "Welcome, #{user.name}"
 		
-	 #    if user.oauth_token
-	 #    	user.update_token(auth_hash)
-		# end
 		if session[:channel_id]
 			redirect_to subscribe_path(session[:channel_id])
 		else
