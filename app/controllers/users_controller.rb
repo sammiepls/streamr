@@ -10,15 +10,15 @@ class UsersController < ApplicationController
 
     session[:channel_id] = subscribe_params[:channel_id]
 
-    if !(current_user)
-      redirect_to login_path and return
-    else
-		  account = Yt::Account.new access_token: current_user.oauth_token
-      channel = Yt::Channel.new id: session[:channel_id], auth: account
+      if !(current_user)
+        redirect_to login_path and return
+      else
+  		  account = Yt::Account.new access_token: current_user.oauth_token
+        channel = Yt::Channel.new id: session[:channel_id], auth: account
         if channel.subscribed? == false
           channel.subscribe
         end
-    end
+      end
 
     session[:channel_id] = nil
     redirect_to root_path
