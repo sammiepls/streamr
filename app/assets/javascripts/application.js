@@ -46,6 +46,23 @@ setInterval(function(e){
 	  });
 }, 5000);
 
-
-
 // $(document).on("click","#executer-button",callExecuter);
+
+// Get Keep Button Count
+document.addEventListener("turbolinks:load", function() {
+  document.querySelector("#btn-keep").addEventListener("click",function(e) {
+    ahoy.track("Press keep button","Keep playing");
+  })
+});
+
+document.addEventListener("turbolinks:load", function() {
+		var totalKeeps = $('#btn-keep').data('url')
+		var totalVisits = $('#current-viewers').html()
+
+		$('#btn-keep').click(function () {
+        // var val = Math.floor((Math.random() * 100)) + '%';
+        var val = (Math.ceil(totalKeeps / totalVisits)) * 100 + '%';
+				debugger
+        $('.progress-bar').width(val).text(val)
+    })
+});

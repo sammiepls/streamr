@@ -2,15 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.chat-wrapper {
+  border-radius: 10px;
+  height: 100%;
+  box-shadow: $shadow;
+}
+.chat-title {
+  border-radius: 10px 10px 0 0;
+  background: rgba( darken( $dark, 10% ), .5);
+  padding: 1rem;
+  padding-bottom: .25rem;
+  text-transform: uppercase;
+}
 #chat-input{
   display: none;
 }
-
-
+#chat-username,#chat-input {
+  background: rgba($dark, .5);
+  border-radius: 0 0 10px 10px;
+}
+.chat-form input{
+  flex:1;
+  background: rgba( darken( $dark, 10% ), .5);
+  color: #fff;
+  border: 0;
+  padding: .5rem;
+  border-radius: 10px;
+  width: 100%;
+  margin-right: 10px;
+}
+#username {
+  width: auto;
+}
+.chat-button {
+  cursor: pointer;
+  background: rgba( darken( $dark, 10% ), .5);
+  color: #fff;
+}
 #messages{
-  width: 300px;
+  width: 100%;
   height: 250px;
-  border: solid white;
-  overflow-y: auto;
+ overflow-y: auto;
+ background: rgba($dark, .5);
+}
+#messages::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 5px;
+	background-color: rgba( darken( $dark, 10% ), .5);
+}
+#messages::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: rgba( darken( $dark, 10% ), .5);
+}
+
+#messages::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
 }
