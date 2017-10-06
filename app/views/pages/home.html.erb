@@ -1,23 +1,22 @@
-
 <main class="container my-3">
   <div class="row py-3 align-items-center">
       <div class='user'>
         <div class='user-avatar-wrapper'>
           <%= image_tag 'anonymous.jpg', class:"user-avatar", alt:"User Profile Picture"%>
-          <span class='pt-2'><i class='fa fa-eye fa-fw'></i><p id='current-viewers'>10</p></span>
+          <span class='pt-2'><i class='fa fa-eye fa-fw'></i><p id='current-viewers'><%= @total_visits %></p></span>
         </div>
         <div class='user-details-wrapper ml-5'>
-          <h1 class='h2'>username</h1>
+          <h1 class='h2'><%= @video.channel_title %></h1>
           <p>is now streaming</p>
-          <h2>Title of Stream</h2>
+          <h2><%= @video.vid_title %></h2>
         </div>
       </div>
   </div>
 
-  <div class="row">
+  <div class="row row-eq-height">
     <div class="col-8">
-      <div class="stream-container" style='background:black; height:50vh;'>
-        <iframe class='video' id=<%= @params[0] %> width='700' height='500' src='https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1] %>'></iframe>
+      <div class="stream-container"><!-- Videos -->
+        <iframe class="video" id='<%= @params[0] %>' width="700" height="500" src="https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1]  %>" allowfullscreen></iframe>
       </div>
     </div>
     <div class="col-4">
@@ -25,7 +24,7 @@
         <div class='col-6'><!-- Subscribe button -->
           <div class="btn btn-subscribe" type="button">
           <i class='fa fa-fw fa-plus'></i>
-            <%= link_to t('.subscribe'), subscribe_path('UCgnZ1NagHZ1SSOEz8G0KAFw') %>
+            <%= link_to t('.subscribe'), subscribe_path(@params[3]) %>
           </div>
         </div><!-- Subscribe button end -->
         <div class='col-6'> <!-- Timer -->
@@ -40,15 +39,14 @@
           <p>Hit keep if you like what you see!</p>
         </div>
         <div class='col-4'>
-          <%= button_tag(type:'button', class:"btn btn-keep") do %>
+          <%= button_tag(type:'button', id:"btn-keep",class:"btn", data:{url:@total_keeps}) do %>
             <i class='fa fa-fw fa-thumbs-up'></i>Keep
           <% end %>
         </div>
         <div class='col-8'>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-              <span class="sr-only">70% Complete</span>
-              <div id="percent" class='d-flex h-100 justify-content-center align-items-center'>70%</div>
+            <div class="progress-bar d-flex justify-content-center align-items-center" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+              <span class="sr-only">0%</span>
             </div>
           </div>
         </div>
@@ -56,13 +54,26 @@
       <div class='row mt-4'>
         <div class="col-12">
 
+          <div class='chat-wrapper'>
+            <div class='chat-title'>
+              <h1 class='h4'>Chatroom</h1>
+            </div>
+            <div id="messages" class='py-2 px-3'>
+              <%= render @messages %>
+              <!-- each of the mesages -->
+              <!-- <p><span class="red">first half of regex(username)</span>:second half of regex(message)</p>-->
+            </div>
 
-          <div id="messages">
-            <%= render @messages %>
-            <!-- each of the mesages -->
-            <!-- <p><span class="red">first half of regex(username)</span>:second half of regex(message)</p>-->
-          </div>
+            <div id="chat-input" class='p-3'>
+              <form class='chat-form form-inline'>
+                <input type="text" data-behavior="room_speaker" placeholder="Say something">
+                <%= button_tag(type: "submit", id:"chat_button", class:"btn chat-button") do %>
+                  <i class='fa fa-paper-plane'></i>
+                <% end %>
+              </form>
+            </div>
 
+<<<<<<< HEAD
           <div id="chat-input">
             <form>
               <label>Say something:</label><br>
@@ -70,13 +81,18 @@
               
             </form>
           </div>
+=======
+            <div id="chat-username" class='pt-2 pb-3 px-3'>
+              <%= form_tag(root_path, class:"form-inline chat-form") do %>
+                <%= text_field_tag :temp_username, nil, { id: "username", placeholder:"Username" } %>
+                <%= button_tag(type: "submit", id: "user_button", class:"btn chat-button") do %>
+                  <i class='fa fa-paper-plane'></i>
+                <% end %>
+                <%#= submit_tag "create", id: "user_button" %>
+              <% end %>
+            </div>
+>>>>>>> master
 
-          <div id="chat-username">
-            <%= form_tag(root_path) do %>
-            <label>Chat Username:</label> <br>
-            <%= text_field_tag :temp_username, nil, { id: "username" } %>
-            <%= submit_tag "create", id: "user_button"%>
-            <% end %>
           </div>
 
         </div>
