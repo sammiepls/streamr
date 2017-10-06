@@ -53,7 +53,29 @@
       </div>
       <div class='row mt-4'>
         <div class="col-12">
-          Chat goes here 
+
+
+          <div id="messages">
+            <%= render @messages %> 
+            <!-- each of the mesages -->
+            <!-- <p><span class="red">first half of regex(username)</span>:second half of regex(message)</p>-->
+          </div>
+
+          <div id="chat-input">
+            <form>
+              <label>Say something:</label><br>
+              <input type="text" data-behavior="room_speaker">
+            </form>
+          </div>
+
+          <div id="chat-username">
+            <%= form_tag(root_path) do %>
+            <label>Chat Username:</label> <br>
+            <%= text_field_tag :temp_username, nil, { id: "username" } %>
+            <%= submit_tag "create", id: "user_button"%>
+            <% end %>
+          </div>
+
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def home
+    @messages = Message.all
 
   	# count = 130
   	# y = (1..5).to_a

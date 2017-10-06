@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :destroy]
   get "/logout", to: "sessions#destroy"
   get '/auth/failure', to: redirect('/')
+  mount ActionCable.server => '/cable'
+
 end
