@@ -33,8 +33,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'figaro'
-
-gem 'yt', '~> 0.28.0'
 # Google Omniauth
 gem 'omniauth-google-oauth2'
 # Youtube API gem

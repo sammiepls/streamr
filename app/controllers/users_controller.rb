@@ -6,15 +6,16 @@ class UsersController < ApplicationController
   #   redirect_to root_path
   # end
 
-  def subscribe
+  # def subscribe
 
-    session[:channel_id] = subscribe_params[:channel_id]
+  #   session[:channel_id] = subscribe_params[:channel_id]
   def create
     @user_authentication = Yt::Account.new(scopes: 'userinfo.email', redirect_uri: ENV['GOOGLE_REDIRECT_URIS']).authentication_url
     # @user = User.new(email, etc)
     redirect_to root_path
   end
-
+  
+  def subscribe
     if !(current_user)
       redirect_to login_path and return
     else
@@ -27,13 +28,11 @@ class UsersController < ApplicationController
 
     session[:channel_id] = nil
     redirect_to root_path
-
   end
 
   def subscribe_params
 
     params.permit(:channel_id)
-
   end
 
   def authorization_params
