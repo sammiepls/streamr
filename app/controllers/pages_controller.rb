@@ -4,7 +4,8 @@ class PagesController < ApplicationController
     # Testing Ahoy Vists
     ahoy.track_visit
     ahoy.track "btn-keep", title: "Keep playing"
-    @params = []
+    @messages = Message.all
+  	@params = []
   	@params << Video.last.vid_id
   	@params << Video.last.vid_duration
     @params << Video.last.channel_title
