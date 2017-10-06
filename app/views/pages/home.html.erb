@@ -13,7 +13,7 @@
       </div>
   </div>
 
-  <div class="row">
+  <div class="row row-eq-height">
     <div class="col-8">
       <div class="stream-container"><!-- Videos -->
         <iframe class="video" id='<%= @params[0] %>' width="700" height="500" src="https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1]  %>" allowfullscreen></iframe>
@@ -54,26 +54,35 @@
       <div class='row mt-4'>
         <div class="col-12">
 
+          <div class='chat-wrapper'>
+            <div class='chat-title'>
+              <h1 class='h4'>Chatroom</h1>
+            </div>
+            <div id="messages" class='py-2 px-3'>
+              <%= render @messages %>
+              <!-- each of the mesages -->
+              <!-- <p><span class="red">first half of regex(username)</span>:second half of regex(message)</p>-->
+            </div>
 
-          <div id="messages">
-            <%= render @messages %>
-            <!-- each of the mesages -->
-            <!-- <p><span class="red">first half of regex(username)</span>:second half of regex(message)</p>-->
-          </div>
+            <div id="chat-input" class='p-3'>
+              <form class='chat-form form-inline'>
+                <input type="text" data-behavior="room_speaker" placeholder="Say something">
+                <%= button_tag(type: "submit", id:"chat_button", class:"btn chat-button") do %>
+                  <i class='fa fa-paper-plane'></i>
+                <% end %>
+              </form>
+            </div>
 
-          <div id="chat-input">
-            <form>
-              <label>Say something:</label><br>
-              <input type="text" data-behavior="room_speaker">
-            </form>
-          </div>
+            <div id="chat-username" class='pt-2 pb-3 px-3'>
+              <%= form_tag(root_path, class:"form-inline chat-form") do %>
+                <%= text_field_tag :temp_username, nil, { id: "username", placeholder:"Username" } %>
+                <%= button_tag(type: "submit", id: "user_button", class:"btn chat-button") do %>
+                  <i class='fa fa-paper-plane'></i>
+                <% end %>
+                <%#= submit_tag "create", id: "user_button" %>
+              <% end %>
+            </div>
 
-          <div id="chat-username">
-            <%= form_tag(root_path) do %>
-            <label>Chat Username:</label> <br>
-            <%= text_field_tag :temp_username, nil, { id: "username" } %>
-            <%= submit_tag "create", id: "user_button"%>
-            <% end %>
           </div>
 
         </div>

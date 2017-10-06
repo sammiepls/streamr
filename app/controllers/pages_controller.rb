@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     @params << Video.last.channel_title
     @params << Video.last.channel_id
     @video = Video.last
-    
+
   end
 
   def update_video

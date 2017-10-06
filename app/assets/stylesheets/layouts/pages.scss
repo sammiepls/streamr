@@ -4,6 +4,10 @@ body {
   height: 100vh;
   font-family: 'Nunito',sans-serif;
   color: #fff;
+  outline: none;
+}
+input {
+  outline: none;
 }
 .container {
   max-width: 1200px;
