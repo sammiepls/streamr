@@ -5,7 +5,7 @@ class VideoJob < ApplicationJob
    count = rand(80..130)
    videos = Yt::Collections::Videos.new
    @vid = videos.where(order: 'viewCount', q: 'dota2stream').take(count).last
-   # byebug 
+   byebug 
    @id = @vid.id 
    @duration = @vid.duration/2
    @title = @vid.title
