@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def home
+    @messages = Message.all
     # Video.create(vid_id: 'asd', vid_duration: 123123, vid_title: 'asdasd', vid_copy: 'false')
   	@params = []
   	@params << Video.last.vid_id
