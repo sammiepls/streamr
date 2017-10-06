@@ -24,23 +24,11 @@ class PagesController < ApplicationController
   	# end
   	json_content = {data: @params}
   	render json: json_content
-  end
-  	# @params = []
-  	# @params << Video.last.vid_id
-  	# @params << Video.last.vid_duration
 
-  # def update_video
   	# @params = []
   	# @params << Video.last.vid_id
   	# @params << Video.last.vid_duration
-  	# # byebug
-  	# # p "run================================="
-  	# # respond_to do |format|
-  	# # 	format.js
-  	# # end
-  	# json_content = {data: @params}
-  	# render json: json_content
-  # end
+  end
 
   # def video
   #   count = rand(80..130)
