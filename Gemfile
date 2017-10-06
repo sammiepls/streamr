@@ -77,3 +77,5 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 # Ahoy
 gem 'ahoy_matey'
+
+gem "sidekiq-cron", "~> 0.4.0"  
