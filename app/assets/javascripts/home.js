@@ -20,14 +20,10 @@ $(document).ready(function(){
         length = $('.message').length
         if(length > 28){
           deleteChild()
-          console.log('it works')
         }
         // if $('.message').length > 28
         //   $('.message').deleteChild();
       $('#messages').animate({
       scrollTop: $('#messages').get(0).scrollHeight}, 1000);
       });
-
-
-
 });
