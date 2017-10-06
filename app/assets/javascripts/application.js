@@ -51,7 +51,8 @@ document.addEventListener("turbolinks:load", function() {
 
 		$('#btn-keep').click(function () {
         // var val = Math.floor((Math.random() * 100)) + '%';
-        var val = (totalKeeps / totalVisits) * 100 + '%';
+        var val = (Math.ceil(totalKeeps / totalVisits)) * 100 + '%';
+				debugger
         $('.progress-bar').width(val).text(val)
     })
 });
