@@ -27,7 +27,7 @@ setInterval(function(e){
 	    dataType: 'json',
 	    success: function(data){
 	    	console.log("sucess");
-	    	// debugger 
+	    	// debugger
 	    	$('.video').remove()
 	    	$('.stream-container').append("\
 	    	<iframe class='video' id= "+ data.data[0] +" width='700' \
@@ -36,6 +36,11 @@ setInterval(function(e){
 	  });
 }, 20000);
 
-
-
 // $(document).on("click","#executer-button",callExecuter);
+
+// Get Keep Button Count
+document.addEventListener("turbolinks:load", function() {
+  document.querySelector("#btn-keep").addEventListener("click",function(e) {
+    ahoy.track("Press keep button","Keep playing");
+  })
+});
