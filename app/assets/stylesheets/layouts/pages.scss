@@ -46,6 +46,7 @@ body {
   box-shadow: $shadow;
   cursor: pointer;
   &:hover,&:focus {
+    color: #fff;
     background-color: darken( $red, 10% );
   }
 }
@@ -90,4 +91,6 @@ body {
 }
 .stream-container iframe{
   width: 100%;
+  border: 0;
+  border-radius: 20px!important;
 }
