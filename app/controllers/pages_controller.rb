@@ -2,19 +2,19 @@ class PagesController < ApplicationController
 
   def home
     @messages = Message.all
-
-  	# count = 130
-  	# y = (1..5).to_a
-  	# y.each do |i|
-  	# 	VideoJob.perform_now(count)
-  	# 	count -= 1
-  	# end
-
-  	# videos =  $redis.get("categories")
-   #  if categories.nil?
-   #    categories = Category.all.to_json
-   #    $redis.set("categories", categories)
-   #  end
-
   end
+
+  def update_video
+  	# @params = []
+  	# @params << Video.last.vid_id
+  	# @params << Video.last.vid_duration
+  	# # byebug
+  	# # p "run================================="
+  	# # respond_to do |format|
+  	# # 	format.js
+  	# # end
+  	# json_content = {data: @params}
+  	# render json: json_content
+  end
+
 end

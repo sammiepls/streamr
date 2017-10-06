@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "pages#home"
+  get '/update' => "pages#update_video"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/login", to: redirect("/auth/google_oauth2")
@@ -8,5 +9,5 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   get '/auth/failure', to: redirect('/')
   mount ActionCable.server => '/cable'
-
+  get "/user/subscribe/:channel_id", to: "users#subscribe", as: "subscribe"
 end

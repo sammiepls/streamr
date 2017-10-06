@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20171005074135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "vid_id"
+    t.integer "vid_duration"
+    t.string "vid_title"
+    t.string "vid_copy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "visits", force: :cascade do |t|
     t.string "visit_token"
     t.string "visitor_token"
