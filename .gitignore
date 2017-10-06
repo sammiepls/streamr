@@ -25,5 +25,4 @@
 # Ignore application configuration
 /config/application.yml
 /config/client_secret.json
-
 /dump.rdb

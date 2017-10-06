@@ -25,10 +25,9 @@
     <div class="col-4">
       <div class='row'>
         <div class='col-6'><!-- Subscribe button -->
-          <div class="btn btn-subscribe" type="button">
-          <i class='fa fa-fw fa-plus'></i>
-            <%= link_to t('.subscribe'), subscribe_path(@params[3]) %>
-          </div>
+        <%= link_to(subscribe_path(@params[3]), class: "btn btn-subscribe") do %>
+          <i class='fa fa-fw fa-plus'></i>Subscribe
+        <% end %>
         </div><!-- Subscribe button end -->
         <div class='col-6'> <!-- Timer -->
           <div id='timer' class="btn">
