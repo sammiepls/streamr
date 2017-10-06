@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   # end
 
   def subscribe
-byebug
   #channel to subscribe
     @channel_id = subscribe_params
   #subscriber
@@ -21,7 +20,6 @@ byebug
   def subscribe_params
 
     params.permit(:channel_id)
-
   end
 
 end
