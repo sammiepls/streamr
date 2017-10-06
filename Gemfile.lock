@@ -81,6 +81,7 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.2)
+    database_cleaner (1.6.1)
     errbase (0.0.3)
     erubi (1.6.1)
     et-orbi (1.0.6)
@@ -263,6 +264,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  database_cleaner
   figaro
   font-awesome-sass (~> 4.7.0)
   jbuilder (~> 2.5)
