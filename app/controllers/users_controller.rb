@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def subscribe
-    byebug
+    
     session[:channel_id] = subscribe_params[:channel_id]
 
       if !(current_user)
