@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171005074135) do
+=======
+ActiveRecord::Schema.define(version: 20171006033637) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +54,8 @@ ActiveRecord::Schema.define(version: 20171005074135) do
     t.string "vid_copy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "channel_title"
+    t.string "channel_id"
   end
 
   create_table "visits", force: :cascade do |t|
