@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def update_video
-    
+    # byebug 
   	@params = [] 
   	@params << Video.last.vid_id 
   	@params << Video.last.vid_duration 
