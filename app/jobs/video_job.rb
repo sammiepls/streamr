@@ -6,7 +6,7 @@ class VideoJob < ApplicationJob
    videos = Yt::Collections::Videos.new
    @vid = videos.where(order: 'viewCount', q: 'dota2stream').take(count).last
    # byebug
-   @id = @vid.id 
+   @id = @vid.id
    @duration = @vid.duration/2
    @title = @vid.title
    @copyright = @vid.infringes_copyright?
@@ -14,5 +14,6 @@ class VideoJob < ApplicationJob
    @channel_id = @vid.channel_id
    Video.last.update(vid_id: @id, vid_duration: @duration,
     vid_title: @title, vid_copy: @copyright, channel_title: @channel_title, channel_id: @channel_id)
+   CleanVisitsEventsJob.perform_now
   end
 end

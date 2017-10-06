@@ -44,3 +44,14 @@ document.addEventListener("turbolinks:load", function() {
     ahoy.track("Press keep button","Keep playing");
   })
 });
+
+document.addEventListener("turbolinks:load", function() {
+		var totalKeeps = $('#btn-keep').data('url')
+		var totalVisits = $('#current-viewers').html()
+
+		$('#btn-keep').click(function () {
+        // var val = Math.floor((Math.random() * 100)) + '%';
+        var val = (totalKeeps / totalVisits) * 100 + '%';
+        $('.progress-bar').width(val).text(val)
+    })
+});
