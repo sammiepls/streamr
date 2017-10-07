@@ -69,7 +69,7 @@ group :development do
   gem 'sidekiq'
 end
 
-gem 'redis'
+gem 'redis-rails', '~> 4'
 gem 'redis-namespace'
 
 # Jquery
