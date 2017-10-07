@@ -67,7 +67,7 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'sidekiq'
 
 
-# gem 'redis'
+gem 'redis'
 # gem 'redis-namespace'
 
 # Jquery
