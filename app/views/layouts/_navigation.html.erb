@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class='navbar-nav ml-auto'>
 
-        <% if logged_in? %>
+        <% if current_user %>
         <li class="navbar-item">
             <%= link_to "Queue Your Stream now", queue_path, class: "navbar-item" %>
             <%= link_to "Logout", logout_path, class: "navbar-item" %>
