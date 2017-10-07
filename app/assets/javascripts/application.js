@@ -43,11 +43,11 @@ setInterval(function(e){
 					var totalVisits = parseInt($('#current-viewers').html())
 					var val = (totalKeeps / totalVisits) * 100 + '%';
 					$('.progress-bar').width(val).text(val)
-					
+
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("success");
 					 time = 60
-				 timer['timerFunction'];
+				 	 timer['timerFunction'];
 	    	   $('.video').remove()
 	    	   $('.video_id').remove()
 	    	   $('.stream-container').append("\
