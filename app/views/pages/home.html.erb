@@ -28,10 +28,14 @@
           </div>
         </div><!-- Subscribe button end -->
         <div class='col-6'> <!-- Timer -->
+
+
+
           <div id='timer' class="btn">
-            <p>Count<br>Down</br></p>
-            <strong>1:00</strong>
+
           </div>
+
+
         </div><!-- Timer End-->
       </div>
       <div class='row mt-4'>
@@ -67,21 +71,11 @@
             <div id="chat-input" class='p-3'>
               <form class='chat-form form-inline'>
                 <input type="text" data-behavior="room_speaker" placeholder="Say something">
-                <%= button_tag(type: "submit", id:"chat_button", class:"btn chat-button") do %>
-                  <i class='fa fa-paper-plane'></i>
-                <% end %>
+                <%#= button_tag(type: "submit", id:"chat_button", class:"btn chat-button") do %>
+                <button type="submit" name="submit">submit</button>
               </form>
             </div>
 
-<<<<<<< HEAD
-          <div id="chat-input">
-            <form>
-              <label>Say something:</label><br>
-              <input type="text" data-behavior="room_speaker">
-              
-            </form>
-          </div>
-=======
             <div id="chat-username" class='pt-2 pb-3 px-3'>
               <%= form_tag(root_path, class:"form-inline chat-form") do %>
                 <%= text_field_tag :temp_username, nil, { id: "username", placeholder:"Username" } %>
@@ -91,7 +85,6 @@
                 <%#= submit_tag "create", id: "user_button" %>
               <% end %>
             </div>
->>>>>>> master
 
           </div>
 

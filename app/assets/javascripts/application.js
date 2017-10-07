@@ -21,12 +21,14 @@
 
 
 setInterval(function(e){
+	  time = 20
 	  $.ajax({
 	    type:'GET',
 	    url:'/update',
 	    dataType: 'json',
 	    success: function(data){
 	    	console.log("sucess");
+				timer['timerFunction'];
 	    	// debugger
 	    	$('.video').remove()
 	    	$('.stream-container').append("\
@@ -34,7 +36,7 @@ setInterval(function(e){
 	    	height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
 	    },
 	  });
-}, 20000);
+}, 5000);
 
 // $(document).on("click","#executer-button",callExecuter);
 
