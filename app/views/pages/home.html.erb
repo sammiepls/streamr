@@ -15,17 +15,19 @@
 
   <div class="row row-eq-height">
     <div class="col-8">
-      <div class="stream-container"><!-- Videos -->
-        <iframe class="video" id='<%= @params[0] %>' width="700" height="500" src="https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1]  %>" allowfullscreen></iframe>
+
+      <div class="stream-container" style='background:black; height:50vh;'>
+        <input class="video_id" name="vid_id" type="hidden" value=<%= @params[0] %>>
+        <iframe class='video' id=<%= @params[0] %> width='700' height='500' src='https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1] %>'></iframe>
+
       </div>
     </div>
     <div class="col-4">
       <div class='row'>
         <div class='col-6'><!-- Subscribe button -->
-          <div class="btn btn-subscribe" type="button">
-          <i class='fa fa-fw fa-plus'></i>
-            <%= link_to t('.subscribe'), subscribe_path(@params[3]) %>
-          </div>
+        <%= link_to(subscribe_path(@params[3]), class: "btn btn-subscribe") do %>
+          <i class='fa fa-fw fa-plus'></i>Subscribe
+        <% end %>
         </div><!-- Subscribe button end -->
         <div class='col-6'> <!-- Timer -->
 

@@ -21,19 +21,29 @@
 
 
 setInterval(function(e){
-	  time = 20
+	  time = 60
+
+	// make if statement, if the video is different then ajax and change the video. every 5 seconds the js will check
+	var old_id = document.getElementsByClassName('video_id');
 	  $.ajax({
 	    type:'GET',
 	    url:'/update',
 	    dataType: 'json',
 	    success: function(data){
-	    	console.log("sucess");
-				timer['timerFunction'];
 	    	// debugger
-	    	$('.video').remove()
-	    	$('.stream-container').append("\
-	    	<iframe class='video' id= "+ data.data[0] +" width='700' \
-	    	height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
+	    	console.log("ran");
+	    	// debugger
+	    	if (old_id[0].value != data.data[0]) {
+	    	   console.log("sucess");
+					 timer['timerFunction'];
+	    	   // debugger
+	    	   $('.video').remove()
+	    	   $('.video_id').remove()
+	    	   $('.stream-container').append("\
+	    	   	<input class='video_id' name='vid_id' type='hidden' value="+ data.data[0] +">\
+	    	   <iframe class='video' id= "+ data.data[0] +" width='700' \
+	    	   height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
+	    	}
 	    },
 	  });
 }, 5000);
