@@ -36,23 +36,40 @@ class VideoJob < ApplicationJob
         end
       end
     else
-      count = rand(80..130)
+      live = rand(0..1)
       videos = Yt::Collections::Videos.new
-      @vid = videos.where(order: 'viewCount', q: 'dota2stream').take(count).last
-      @id = @vid.id 
-      @duration = @vid.duration/2
-      @title = @vid.title
-      @copyright = @vid.infringes_copyright?
-      @channel_title = @vid.channel_title
-      @channel_id = @vid.channel_id
-      @embed = @vid.embeddable? 
-      Video.last.update(vid_id: @id, vid_duration: @duration,
-      vid_title: @title, vid_copy: @copyright, channel_title: @channel_title, 
-      channel_id: @channel_id, embeddable: @embed)
-      if Video.last.embeddable == 'f'
-        VideoJob.perform_now
-      end 
-      CleanVisitsEventsJob.perform_now
+      if live == 1 
+       vid = videos.where(order: 'viewCount', q: 'fun streaming dota', videoEmbeddable: true)
+       max = vid.count
+       # byebug 
+       count = rand(80..max)
+       @live = vid.take(count).last 
+       video(@live)
+       Video.last.update(vid_id: @details[0] , vid_duration: @details[1],
+        vid_title: @details[2], channel_title: @details[3], 
+        channel_id: @details[4], video_type: 'prev')
+       else 
+        vid = videos.where(order: 'viewCount', q: 'dota 2 live stream', event_type: 'live', videoEmbeddable: true)
+        max = vid.count
+        # byebug 
+        count = rand(0..max)
+        @live = vid.take(count).last
+        video(@live)
+        Video.last.update(vid_id: @details[0] , vid_duration: @details[1],
+            vid_title: @details[2], channel_title: @details[3], 
+            channel_id: @details[4], video_type: 'live')
+     end 
+       CleanVisitsEventsJob.perform_now
     end
   end
+
+  def video(vid)
+    @details = [] 
+    @details << @live.id 
+    @details << @live.duration/2
+    @details << @live.title
+    @details << @live.channel_title
+    @details << @live.channel_id
+    return @details 
+  end 
 end
