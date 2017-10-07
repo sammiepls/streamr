@@ -24,8 +24,34 @@ ActiveRecord::Schema.define(version: 20171007051637) do
     t.index ["visit_id", "name"], name: "index_ahoy_events_on_visit_id_and_name"
   end
 
+  create_table "counters", force: :cascade do |t|
+    t.integer "current_index", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "streamings", force: :cascade do |t|
+    t.string "stream_id"
+    t.string "stream_title"
+    t.string "channel_id"
+    t.string "channel_title"
+    t.string "streamer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "streams", force: :cascade do |t|
+    t.string "stream_id"
+    t.string "stream_title"
+    t.string "channel_id"
+    t.string "channel_title"
+    t.string "streamer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
