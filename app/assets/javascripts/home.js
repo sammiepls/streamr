@@ -1,5 +1,5 @@
 
-time = 20
+time = 60
 var timer = {
   timerFunction: setInterval(function(){
     time -= 1;

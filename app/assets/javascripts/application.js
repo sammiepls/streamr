@@ -21,7 +21,7 @@
 
 
 setInterval(function(e){
-	  time = 60
+
 
 	// make if statement, if the video is different then ajax and change the video. every 5 seconds the js will check
 	var old_id = document.getElementsByClassName('video_id');
@@ -35,6 +35,7 @@ setInterval(function(e){
 	    	// debugger
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("sucess");
+					   time = 60
 					 timer['timerFunction'];
 	    	   // debugger
 	    	   $('.video').remove()
