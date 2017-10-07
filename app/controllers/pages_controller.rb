@@ -15,17 +15,23 @@ class PagesController < ApplicationController
     @params << Video.last.channel_title
     @params << Video.last.channel_id
     @video = Video.last
+  end
 
+  def update_visits_keeps
+    @total_visits = Visit.all.count
+    @total_keeps = Ahoy::Event.distinct.count('visit_id')
 
+    # render js: "$('#current-viewers').html('#{@total_visits}')"
   end
 
   def update_video
-    # byebug 
-  	@params = [] 
-  	@params << Video.last.vid_id 
-  	@params << Video.last.vid_duration 
+    # byebug
+  	@params = []
+  	@params << Video.last.vid_id
+  	@params << Video.last.vid_duration
     @params << Video.last.channel_title
     @params << Video.last.channel_id
+
   	# byebug
   	# p "run================================="
   	# respond_to do |format|

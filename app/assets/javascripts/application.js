@@ -29,12 +29,12 @@ setInterval(function(e){
 	    url:'/update',
 	    dataType: 'json',
 	    success: function(data){
-	    	// debugger 
+	    	// debugger
 	    	console.log("ran");
-	    	// debugger 
+	    	// debugger
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("sucess");
-	    	   // debugger 
+	    	   // debugger
 	    	   $('.video').remove()
 	    	   $('.video_id').remove()
 	    	   $('.stream-container').append("\
@@ -42,9 +42,11 @@ setInterval(function(e){
 	    	   <iframe class='video' id= "+ data.data[0] +" width='700' \
 	    	   height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
 	    	}
+
 	    },
 	  });
 }, 5000);
+
 
 // $(document).on("click","#executer-button",callExecuter);
 
@@ -60,9 +62,27 @@ document.addEventListener("turbolinks:load", function() {
 		var totalVisits = $('#current-viewers').html()
 
 		$('#btn-keep').click(function () {
-        // var val = Math.floor((Math.random() * 100)) + '%';
         var val = (Math.ceil(totalKeeps / totalVisits)) * 100 + '%';
-				debugger
         $('.progress-bar').width(val).text(val)
     })
 });
+
+setInterval(function(e){
+
+var old_visits = $("#visitskeeps");
+	$.ajax({
+		type:'GET',
+		url:'/update_visits_keeps',
+		dataType: 'json',
+		success: function(data){
+			debugger
+			console.log("ran");
+			// debugger
+			if (old_visits[0].value != data.data[0]) {
+				 console.log("sucess");
+
+			}
+
+		},
+	});
+}, 5000);
