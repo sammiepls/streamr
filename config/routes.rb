@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # scope :ujs, defaults: { format: :ujs } do
   #   patch 'pages_totalvisits' => 'pages#totalvisits'
   # end
-  get '/update_visits_keeps' => "pages#update_visits_keeps"
+  get '/voting' => "pages#voting"
 
   get "/login", to: redirect("/auth/google_oauth2")
   get "/auth/google_oauth2/callback", to: "sessions#create"

@@ -4,7 +4,7 @@ class VideoJob < ApplicationJob
   def perform
     has_available_stream = false
     if Stream.count > 0
-      while !has_available_stream && Stream.count > 0 
+      while !has_available_stream && Stream.count > 0
         if Counter.first.nil?
           counter = Counter.new
           counter.save

@@ -4,9 +4,11 @@
         <div class='user-avatar-wrapper'>
           <%= image_tag 'anonymous.jpg', class:"user-avatar", alt:"User Profile Picture"%>
           <span class='pt-2'><i class='fa fa-eye fa-fw'></i>
-            <p id='current-viewers'><%= @total_visits %>
+            <span class='viewer-count'>
+              <p id='current-viewers'><%= @total_visits %>
+
             <%#= link_to ".", url_for({controller: "pages", action: "totalvisits"}), method: :patch, remote: true %>
-            </p>
+          </p></span>
           </span>
         </div>
         <div class='user-details-wrapper ml-5'>
@@ -45,18 +47,12 @@
           <p>Hit keep if you like what you see!</p>
         </div>
         <div class='col-4'>
-          <%= form_tag('/update_visits_keeps', method: :get, id:"visitskeeps") do %>
-          <%= hidden_field_tag 'total_keeps', @total_keeps  %>
-          <%= hidden_field_tag 'total_visits', @total_visits  %>
-          <%= button_tag(type:'button', controller:"pages", action:"update_visits_keeps", id:"btn-keep",class:"btn", data:{url:@total_keeps}) do %>
+          <span class='btn-keep-wrapper'>
+            <input type='hidden' id="current-keeps" name="vid_id" type="hidden" value="<%= @total_keeps %>">
+          </span>
+          <%= button_tag(type:'button', id:"btn-keep",class:"btn") do %>
             <i class='fa fa-fw fa-thumbs-up'></i>Keep
           <% end %>
-
-
-          <% end %>
-          <%#= link_to url_for({controller: "pages", action: "totalkeeps"}), method: :patch, remote: true, id:"btn-keep",class:"btn",data:{url:@total_keeps} do %>
-          <!-- <i class='fa fa-fw fa-thumbs-up'></i>Keep <span id='totalkeeps'><%= @total_keeps %></span> -->
-          <%# end %>
 
         </div>
         <div class='col-8'>
@@ -76,8 +72,6 @@
             </div>
             <div id="messages" class='py-2 px-3'>
               <%= render @messages %>
-              <!-- each of the mesages -->
-              <!-- <p><span class="red">first half of regex(username)</span>:second half of regex(message)</p>-->
             </div>
 
             <div id="chat-input" class='pt-2 pb-3 px-3'>
@@ -95,7 +89,6 @@
                 <%= button_tag(type: "submit", id: "user_button", class:"btn chat-button") do %>
                   <i class='fa fa-paper-plane'></i>
                 <% end %>
-                <%#= submit_tag "create", id: "user_button" %>
               <% end %>
             </div>
 
