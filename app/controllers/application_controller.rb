@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
 
 private
+
   def logged_in?
     session.has_key? :user_id
   end
