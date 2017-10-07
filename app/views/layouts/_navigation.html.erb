@@ -13,7 +13,6 @@
 
         <% if logged_in? %>
         <li class="navbar-item">
-            <%= current_user.name %>
             <%= link_to "Queue Your Stream now", queue_path, class: "navbar-item" %>
             <%= link_to "Logout", logout_path, class: "navbar-item" %>
           </li>
