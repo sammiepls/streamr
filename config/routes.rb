@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   get '/auth/failure', to: redirect('/')
   get "/user/subscribe/:channel_id", to: "users#subscribe", as: "subscribe"
+
+  resource :stream, only: [:create, :destroy]
+  get "/queue", to: "streams#create"
 end

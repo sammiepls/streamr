@@ -1,0 +1,2 @@
+class Streaming < ApplicationRecord
+end
