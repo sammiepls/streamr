@@ -32,40 +32,64 @@ setInterval(function(e){
 	    success: function(data){
 	    	// debugger
 	    	console.log("ran");
-	    	// debugger
+				$('#current-viewers').remove()
+				$('.viewer-count').append("\
+						<p id='current-viewers'>"+ data.data[4] +"</p>\
+				")
+				$('#current-keeps').remove()
+				$('.btn-keep-wrapper').append("\
+					<input type='hidden' id='current-keeps' name='vid_id' type='hidden' value='"+ data.data[5] +"'>")
+					var totalKeeps = parseInt($('#current-keeps').val())
+					var totalVisits = parseInt($('#current-viewers').html())
+					var val = (totalKeeps / totalVisits) * 100 + '%';
+					$('.progress-bar').width(val).text(val)
+					
 	    	if (old_id[0].value != data.data[0]) {
-	    	   console.log("sucess");
-					   time = 60
-					 timer['timerFunction'];
-	    	   // debugger
+	    	   console.log("success");
+					 time = 60
+				 timer['timerFunction'];
 	    	   $('.video').remove()
 	    	   $('.video_id').remove()
 	    	   $('.stream-container').append("\
 	    	   	<input class='video_id' name='vid_id' type='hidden' value="+ data.data[0] +">\
 	    	   <iframe class='video' id= "+ data.data[0] +" width='700' \
 	    	   height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
+
 	    	}
+
 	    },
 	  });
 }, 5000);
 
+
 // $(document).on("click","#executer-button",callExecuter);
 
 // Get Keep Button Count
-document.addEventListener("turbolinks:load", function() {
-  document.querySelector("#btn-keep").addEventListener("click",function(e) {
-    ahoy.track("Press keep button","Keep playing");
-  })
-});
+// document.addEventListener("turbolinks:load", function() {
+//   document.querySelector("#btn-keep").addEventListener("click",function(e) {
+//     ahoy.track("Press keep button","Keep playing");
+//
+//   })
+// });
 
 document.addEventListener("turbolinks:load", function() {
-		var totalKeeps = $('#btn-keep').data('url')
-		var totalVisits = $('#current-viewers').html()
 
 		$('#btn-keep').click(function () {
-        // var val = Math.floor((Math.random() * 100)) + '%';
-        var val = (Math.ceil(totalKeeps / totalVisits)) * 100 + '%';
-				debugger
-        $('.progress-bar').width(val).text(val)
+				ahoy.track("Press keep button","Keep playing");
+
+				$.ajax({
+					type:'GET',
+					url:'/voting',
+					dataType: 'json',
+					success: function(data){
+						$('#current-keeps').remove()
+						$('.btn-keep-wrapper').append("\
+							<input type='hidden' id='current-keeps' name='vid_id' type='hidden' value='"+ data.data +"'>")
+							var totalKeeps = parseInt($('#current-keeps').val())
+							var totalVisits = parseInt($('#current-viewers').html())
+							var val = (totalKeeps / totalVisits) * 100 + '%';
+							$('.progress-bar').width(val).text(val)
+					}
     })
+});
 });
