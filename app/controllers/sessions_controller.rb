@@ -3,21 +3,17 @@ class SessionsController < ApplicationController
 
 	# GET /auth/google_oauth2/callback
 	def create
+		user = User.from_omniauth(request.env["omniauth.auth"])
+		session[:user_id] = user.uid
+		@account = Yt::Account.new access_token: user.oauth_token
+		# auth_hash = request.env['omniauth.auth']
+		flash[:success] = "Welcome, #{user.name}"
 		
-		auth_hash = request.env['omniauth.auth']
-			user = User.from_omniauth(request.env['omniauth.auth'])
-				session[:user_id] = user.id
-   				flash[:success] = "Welcome, #{user.name}"
-
-			    if user.oauth_token
-				    user.update_token(auth_hash)
-				  end
-
-					if session[:channel_id]
-						redirect_to subscribe_path(session[:channel_id])
-					else
-					 	redirect_to root_path
-				end
+		if session[:channel_id]
+			redirect_to subscribe_path(session[:channel_id])
+		else
+		 	redirect_to root_path
+		end
 	end
 
 	def destroy
