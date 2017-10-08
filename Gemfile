@@ -68,10 +68,10 @@ gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'sidekiq'
 
-gem 'redis-rails'
+gem "redis-rails", github: 'redis-store/redis-rails'
 # gem 'redis'
 # gem 'redis-namespace'
-gem 'redis-store', '~> 1.0.0'
+gem 'redis-store'
 
 # Jquery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
@@ -79,7 +79,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Ahoy
 gem 'ahoy_matey'
 
-gem "sidekiq-cron", "~> 0.4.0"
+gem "sidekiq-cron"
 
 # Database Cleaner
 gem 'database_cleaner'
