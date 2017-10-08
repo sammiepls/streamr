@@ -37,18 +37,6 @@
   display: inline-block;
   vertical-align: middle;
 }
-#btn-keep {
-  width: 100%;
-  background: $green;
-  color: #fff;
-  cursor: pointer;
-  &:hover,&:focus {
-    background-color: darken($green, 10%);
-  }
-  &.disabled {
-    cursor: not-allowed;
-  }
-}
 #timer {
   width: 100%;
   background: #201E1F;

@@ -128,3 +128,55 @@ $shadow-width: 4px;
     100% { background: rgba($black, 0.35); }
   }
 }
+
+// Coin
+#coin {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  small {
+    font-family: 'Press Start 2P', cursive;
+    margin-top: .5rem;
+  }
+}
+.coin {
+  height: 64px;
+  width: 64px;
+  background-image: url("coin.png");
+  background-size: contain;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  transition: .3s all ease;
+  background-repeat: no-repeat;
+  &:hover {
+    background-position-y: -5px;
+  }
+}
+#btn-keep {
+  width: 100%;
+  color: #fff;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+@-webkit-keyframes spin {
+ from {
+   -webkit-transform: rotateY(0deg);
+ }
+ 33% {
+   -webkit-transform: rotateY(90deg);
+ }
+ 50% {
+   -webkit-transform: rotateY(180deg);
+ }
+ 66% {
+   -webkit-transform: rotateY(270deg);
+ }
+ to {
+   -webkit-transform: rotateY(360deg);
+ }
+}
