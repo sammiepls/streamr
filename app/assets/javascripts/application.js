@@ -33,9 +33,10 @@ setInterval(function(e){
 	    	console.log("ran");
 	    	// debugger
 				$('#current-viewers').remove()
-				$('.viewer-count').append("\
-						<p id='current-viewers'>"+ data.data[4] +"</p>\
-				")
+				// $('.viewer-count').append("\
+				// 		<p id='current-viewers'>"+ data.data[4] +"</p>\
+				// ")
+				$('.viewer-count').text(data.data[4])
 				$('#current-keeps').remove()
 				$('.btn-keep-wrapper').append("\
 					<input type='hidden' id='current-keeps' name='vid_id' type='hidden' value='"+ data.data[5] +"'>")
@@ -43,7 +44,7 @@ setInterval(function(e){
 					var totalVisits = parseInt($('#current-viewers').html())
 					var val = (totalKeeps / totalVisits) * 100 + '%';
 					$('.progress-bar').width(val).text(val)
-					
+
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("success");
 	    	   $('.video').remove()
@@ -52,6 +53,7 @@ setInterval(function(e){
 	    	   	<input class='video_id' name='vid_id' type='hidden' value="+ data.data[0] +">\
 	    	   <iframe class='video' id= "+ data.data[0] +" width='700' \
 	    	   height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
+					 $("#vid-username").text(data.data[3])
 
 	    	}
 
