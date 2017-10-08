@@ -62,6 +62,9 @@ input {
   &:hover,&:focus {
     background-color: darken($green, 10%);
   }
+  &.disabled {
+    cursor: not-allowed;
+  }
 }
 #timer {
   width: 100%;
