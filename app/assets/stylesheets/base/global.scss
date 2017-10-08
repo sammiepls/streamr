@@ -2,7 +2,7 @@ body {
   background: linear-gradient(to top, rgba(14, 14, 14, 0.3), rgba(45, 34, 40, 0.3)),url("pattern.png");
   background-position: center;
   height: 100vh;
-  font-family: 'Nunito',sans-serif;
+  font-family: 'Ubuntu Mono', monospace;
   color: #fff;
   outline: none;
 }
@@ -11,4 +11,7 @@ input {
 }
 .container {
   max-width: 1200px;
+}
+h1,.h1 {
+  font-family: 'Press Start 2P', cursive;
 }
