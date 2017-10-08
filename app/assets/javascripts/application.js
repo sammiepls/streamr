@@ -50,41 +50,43 @@ setInterval(function(e){
 	    	   height='500' src='https://www.youtube.com/embed/"+ data.data[0] +"?autoplay=1&start="+ data.data[1]+"'></iframe> ")
 					 $("#vid-title").text(data.data[6].vid_title)
 					 $("#vid-username").text(data.data[6].channel_title)
+					 $("#btn-keep").removeClass("disabled");
 	    	}
 
 	    },
 	  });
 }, 5000);
 
-
-// $(document).on("click","#executer-button",callExecuter);
-
-// Get Keep Button Count
-// document.addEventListener("turbolinks:load", function() {
-//   document.querySelector("#btn-keep").addEventListener("click",function(e) {
-//     ahoy.track("Press keep button","Keep playing");
-//
-//   })
-// });
+$('#tabmenu a').click(function(e) {
+    if($(this).hasClass('disabled'))
+        e.preventDefault();
+});
 
 document.addEventListener("turbolinks:load", function() {
 
-		$('#btn-keep').click(function () {
-				ahoy.track("Press keep button","Keep playing");
+	$('#btn-keep').click(function(event) {
+		if($("#btn-keep").hasClass('disabled')){
+			event.preventDefault();
+		}
+		else {
+			ahoy.track("Press keep button","Keep playing");
+			$("#btn-keep").addClass("disabled");
 
-				$.ajax({
-					type:'GET',
-					url:'/voting',
-					dataType: 'json',
-					success: function(data){
-						$('#current-keeps').remove()
-						$('.btn-keep-wrapper').append("\
-							<input type='hidden' id='current-keeps' name='vid_id' type='hidden' value='"+ data.data +"'>")
-							var totalKeeps = parseInt($('#current-keeps').val())
-							var totalVisits = parseInt($('#current-viewers').html())
-							var val = (totalKeeps / totalVisits) * 100 + '%';
-							$('.progress-bar').width(val).text(val)
-					}
-    })
-});
+			$.ajax({
+				type:'GET',
+				url:'/voting',
+				dataType: 'json',
+				success: function(data){
+					$('#current-keeps').remove()
+					$('.btn-keep-wrapper').append("\
+					<input type='hidden' id='current-keeps' name='vid_id' type='hidden' value='"+ data.data +"'>")
+					var totalKeeps = parseInt($('#current-keeps').val())
+					var totalVisits = parseInt($('#current-viewers').html())
+					var val = (totalKeeps / totalVisits) * 100 + '%';
+					$('.progress-bar').width(val).text(val)
+				}
+			}) //end ajax
+		} //end if else statement
+	});
+
 });
