@@ -37,20 +37,6 @@
   display: inline-block;
   vertical-align: middle;
 }
-.btn-subscribe {
-  width: 100%;
-  color: #fff;
-  background-color: $red;
-  border:0;
-  text-transform: uppercase;
-  padding: 1.2rem;
-  box-shadow: $shadow;
-  cursor: pointer;
-  &:hover,&:focus {
-    color: #fff;
-    background-color: darken( $red, 10% );
-  }
-}
 #btn-keep {
   width: 100%;
   background: $green;
