@@ -42,6 +42,8 @@ setInterval(function(e){
 
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("success");
+					 time = 60
+					 timer['timerFunction'];
 	    	   $('.video').remove()
 	    	   $('.video_id').remove()
 	    	   $('.stream-container').append("\
@@ -56,11 +58,6 @@ setInterval(function(e){
 	    },
 	  });
 }, 5000);
-
-$('#tabmenu a').click(function(e) {
-    if($(this).hasClass('disabled'))
-        e.preventDefault();
-});
 
 document.addEventListener("turbolinks:load", function() {
 
