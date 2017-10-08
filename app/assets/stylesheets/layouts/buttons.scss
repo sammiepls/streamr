@@ -1,6 +1,3 @@
-$outline-width: 6px;
-$shadow-width: 4px;
-
 .btn-subscribe {
   z-index: 1;
   background: $red;
@@ -29,14 +26,14 @@ $shadow-width: 4px;
     &:before {
         top: -$outline-width;
         left: 0;
-        border-top: $outline-width darken($red-shadow,20%) solid;
-        border-bottom: $outline-width darken($red-shadow,20%) solid;
+        border-top: $outline-width darken($red-shadow,15%) solid;
+        border-bottom: $outline-width darken($red-shadow,15%) solid;
     }
     &:after {
         left: -$outline-width;
         top: 0;
-        border-left: $outline-width darken($red-shadow,20%) solid;
-        border-right: $outline-width darken($red-shadow,20%) solid;
+        border-left: $outline-width darken($red-shadow,15%) solid;
+        border-right: $outline-width darken($red-shadow,15%) solid;
     }
   i {
     vertical-align: text-top;
@@ -144,13 +141,13 @@ $shadow-width: 4px;
   width: 64px;
   background-image: url("coin.png");
   background-size: contain;
-  -webkit-animation-name: spin;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-iteration-count: infinite;
+  animation-name: spin;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
   transition: .3s all ease;
   background-repeat: no-repeat;
   &:hover {
-    background-position-y: -5px;
+    background-position-y: -7px;
   }
 }
 #btn-keep {

@@ -1,25 +1,39 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .chat-wrapper {
-  border-radius: 10px;
   height: 100%;
-  box-shadow: $shadow;
+  position: relative;
+  &:before,&:after {
+    content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: content-box;
+        z-index: -2;
+    }
+    &:before {
+        top: -$outline-width;
+        left: 0;
+        border-top: $outline-width darken($dark,5%) solid;
+        border-bottom: $outline-width darken($dark,5%) solid;
+    }
+    &:after {
+        left: -$outline-width;
+        top: 0;
+        border-left: $outline-width darken($dark,5%) solid;
+        border-right: $outline-width darken($dark,5%) solid;
+    }
 }
+
 .chat-title {
-  border-radius: 10px 10px 0 0;
   background: rgba( darken( $dark, 10% ), .5);
-  padding: 1rem;
-  padding-bottom: .25rem;
+  padding: .5rem;
   text-transform: uppercase;
+  font-family: 'Press Start 2P', cursive;
 }
 #chat-input{
   display: none;
 }
 #chat-username,#chat-input {
   background: rgba($dark, .5);
-  border-radius: 0 0 10px 10px;
 }
 .chat-form input{
   flex:1;

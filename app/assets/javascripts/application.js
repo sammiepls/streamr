@@ -68,6 +68,11 @@ document.addEventListener("turbolinks:load", function() {
 		else {
 			ahoy.track("Press keep button","Keep playing");
 			$("#btn-keep").addClass("disabled");
+			$(".coin").fadeOut( 2000, function() {
+				$(".coin").css("animation-duration",".2s");
+		 	});
+			$("#coin small").text("Thanks!");
+
 
 			$.ajax({
 				type:'GET',
