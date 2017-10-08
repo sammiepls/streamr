@@ -68,9 +68,10 @@ gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'sidekiq'
 
-
+gem 'redis-rails'
 # gem 'redis'
 # gem 'redis-namespace'
+gem 'redis-store', '~> 1.0.0'
 
 # Jquery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
