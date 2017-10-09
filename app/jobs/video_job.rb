@@ -4,7 +4,7 @@ class VideoJob < ApplicationJob
   def perform
     visitor = Visit.all.count 
     likes = Ahoy::Event.all.count 
-    more_than = (likes/visitor)*100
+    more_than = (likes/visitor.to_f)*100
 
       if more_than >= 50 
         VideoJob.disable!
