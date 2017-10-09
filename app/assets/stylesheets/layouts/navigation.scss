@@ -3,9 +3,11 @@
   color: $red;
   padding: 1rem;
   box-shadow: 0px 3px 4px 0px rgba($dark, 0.7);
+  font-family: 'Press Start 2P', cursive;
   a {
     color: $red;
     transition: .3s all ease;
+    cursor: pointer;
     &:hover,&:focus {
       color: #fff;
       text-decoration: none;
