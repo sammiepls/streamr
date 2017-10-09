@@ -10,7 +10,11 @@ class PagesController < ApplicationController
     @messages = Message.all
 
     #  For video 
-    video_params 
+    @params = [] 
+   @params << Video.last.vid_id 
+   @params << Video.last.vid_duration 
+   @params << Video.last.channel_title
+   @params << Video.last.channel_id
     @video = Video.last
   end
 
@@ -24,8 +28,12 @@ class PagesController < ApplicationController
   def update_video
     # byebug
     ahoy.track_visit
-  	@params = []
-  	video_params
+  	@params = [] 
+    @params << Video.last.vid_id 
+    @params << Video.last.vid_duration 
+    @params << Video.last.channel_title
+    @params << Video.last.channel_id
+    @params << Visit.count 
     @params << Ahoy::Event.distinct.count('visit_id')
     @params << Video.last
   	# byebug
@@ -37,14 +45,15 @@ class PagesController < ApplicationController
   	render json: json_content
   end
 
-  def video_params 
-      @params = [] 
-      @params << Video.last.vid_id 
-      @params << Video.last.vid_duration 
-      @params << Video.last.channel_title
-      @params << Video.last.channel_id
-      return @params 
-  end 
+  # def video_params 
+  #     @params = [] 
+  #     @params << Video.last.vid_id 
+  #     @params << Video.last.vid_duration 
+  #     @params << Video.last.channel_title
+  #     @params << Video.last.channel_id
+  #     @params << Visit.last 
+  #     return @params 
+  # end 
 
   private
 

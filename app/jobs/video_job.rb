@@ -8,7 +8,6 @@ class VideoJob < ApplicationJob
 
       if more_than >= 50 
         VideoJob.disable!
-        # CleanVisitsEventsJob.disable! 
       else 
         has_available_stream = false
         if Stream.count > 0
