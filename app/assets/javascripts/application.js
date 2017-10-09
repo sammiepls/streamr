@@ -10,18 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
-//= require jquery_ujs
+//= require popper
+//= require bootstrap
 //= require ahoy
 //= require_tree .
 
-
 setInterval(function(e){
-
 	// make if statement, if the video is different then ajax and change the video. every 5 seconds the js will check
 	var old_id = document.getElementsByClassName('video_id');
 	  $.ajax({
@@ -44,6 +42,7 @@ setInterval(function(e){
 	    	   console.log("success");
 					 time = 60
 					 timer['timerFunction'];
+
 	    	   $('.video').remove()
 	    	   $('.video_id').remove()
 	    	   $('.stream-container').append("\
@@ -53,6 +52,10 @@ setInterval(function(e){
 					 $("#vid-title").text(data.data[6].vid_title)
 					 $("#vid-username").text(data.data[6].channel_title)
 					 $("#btn-keep").removeClass("disabled");
+					 $(".coin").css("animation-duration","3s");
+					 $(".coin").fadeIn( 1000, function() {
+		 		 	});
+		 			$("#coin small").text("Continue Stream?");
 	    	}
 
 	    },
@@ -68,6 +71,11 @@ document.addEventListener("turbolinks:load", function() {
 		else {
 			ahoy.track("Press keep button","Keep playing");
 			$("#btn-keep").addClass("disabled");
+			$(".coin").css("animation-duration",".2s");
+			$(".coin").fadeOut( 1000, function() {
+		 	});
+			$("#coin small").text("Thanks!");
+
 
 			$.ajax({
 				type:'GET',
@@ -87,3 +95,23 @@ document.addEventListener("turbolinks:load", function() {
 	});
 
 });
+
+
+// Buttons
+document.addEventListener("turbolinks:load", function() {
+	$('.btn-subscribe').prepend('<div class="hover"><span></span><span></span><span></span><span></span><span></span></div>');
+});
+
+// document.addEventListener("turbolinks:load", function() {
+// 	if($('.progress-bar').css('width') == "0px") {
+// 		$('.progress-bar').css({
+// 			'position':'relative',
+// 			'left':'10px'
+// 		});
+// 	}
+// 	else {
+// 		$('.progress-bar').css({
+// 			'position':'static',
+// 		});
+// 	}
+// });

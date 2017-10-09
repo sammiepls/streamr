@@ -1,0 +1,26 @@
+body {
+  background: linear-gradient(to top, rgba(49, 8, 6, 0.8), rgba(56, 51, 63, 0.82)), url(bg.gif);
+  background-position: center;
+  height: 100vh;
+  font-family: 'Ubuntu Mono', monospace;
+  color: #fff;
+  outline: none;
+}
+button,input {
+  outline: none!important;
+}
+.container {
+  max-width: 1200px;
+}
+a {
+  &:hover {
+  text-decoration: none;
+  }
+}
+h1,.h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.8rem;
+}
+.red {
+  color: $red;
+}
