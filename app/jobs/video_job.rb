@@ -8,6 +8,7 @@ class VideoJob < ApplicationJob
 
       if more_than >= 50 
         VideoJob.disable!
+        # CleanVisitsEventsJob.disable! 
       else 
         has_available_stream = false
         if Stream.count > 0
@@ -58,36 +59,32 @@ class VideoJob < ApplicationJob
            max = vid.count
            count = rand(num..max)
            @live = vid.take(count).last 
-           video(@live)
            # byebug 
-
-           Video.last.update(vid_id: @details[0] , vid_duration: @details[1],
-            vid_title: @details[2], channel_title: @details[3],
-            channel_id: @details[4], video_type: 'prev')
+           video(@live)
           else
             vid = videos.where(order: 'viewCount', q: 'dota 2 live stream', event_type: 'live', videoEmbeddable: true)
             max = vid.count
             count = rand(0..max)
             @live = vid.take(count).last
             video(@live)
-            Video.last.update(vid_id: @details[0] , vid_duration: @details[1],
-                vid_title: @details[2], channel_title: @details[3],
-                channel_id: @details[4], video_type: 'live')
           end
         end
       end
       CleanVisitsEventsJob.perform_now
-    end 
-
+  end 
+  
     def video(vid)
       @details = []
-      @details << @live.id
-      @details << @live.duration/2
-      @details << @live.title
-      @details << @live.channel_title
-      @details << @live.channel_id
-      return @details
+      @details << vid.id
+      @details << vid.duration/2
+      @details << vid.title
+      @details << vid.channel_title
+      @details << vid.channel_id
+      Video.last.update(vid_id: @details[0] , vid_duration: @details[1],
+          vid_title: @details[2], channel_title: @details[3],
+          channel_id: @details[4])
     end
+    
 
     def self.disable!
       # set a flag in Redis, it will expire after 10 minutes

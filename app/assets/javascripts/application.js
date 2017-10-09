@@ -60,7 +60,7 @@ setInterval(function(e){
 
 	    },
 	  });
-}, 5000);
+}, 3000);
 
 document.addEventListener("turbolinks:load", function() {
 

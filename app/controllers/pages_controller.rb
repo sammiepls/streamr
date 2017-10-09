@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 
   def voting
     @total_keeps = Ahoy::Event.distinct.count('visit_id')
-    byebug 
+    # byebug 
     json_content = {data: @total_keeps}
   	render json: json_content
   end
@@ -25,11 +25,7 @@ class PagesController < ApplicationController
     # byebug
     ahoy.track_visit
   	@params = []
-  	@params << Video.last.vid_id
-  	@params << Video.last.vid_duration
-    @params << Video.last.channel_title
-    @params << Video.last.channel_id
-    @params << Visit.all.count
+  	video_params
     @params << Ahoy::Event.distinct.count('visit_id')
     @params << Video.last
   	# byebug
