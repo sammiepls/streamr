@@ -83,3 +83,6 @@ gem "sidekiq-cron"
 
 # Database Cleaner
 gem 'database_cleaner'
+
+# Chardinjs
+gem "chardinjs-rails"
