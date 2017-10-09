@@ -11,17 +11,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class='navbar-nav ml-auto'>
 
-        <% if logged_in? %>
+        <% if current_user %>
         <li class="navbar-item">
-            <%= current_user.name %>
             <%= link_to "Queue Your Stream now", queue_path, class: "navbar-item" %>
             <%= link_to "Logout", logout_path, class: "navbar-item" %>
           </li>
           <% else %>
-          <li class="navbar-item">
-            Become a streamr
-          <%#= link_to 'Become a streamr', sign_up_path, class: "nav-link" %>
-          </li>
           <li class="navbar-item">
             <%= link_to "Login", login_path, class: "navbar-item" %>
           </li>

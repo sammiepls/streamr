@@ -4,7 +4,7 @@ class VideoJob < ApplicationJob
   def perform
     has_available_stream = false
     if Stream.count > 0
-      while !has_available_stream && Stream.count > 0 
+      while !has_available_stream && Stream.count > 0
         if Counter.first.nil?
           counter = Counter.new
           counter.save
@@ -22,13 +22,13 @@ class VideoJob < ApplicationJob
           stream.destroy
         else
           if Streaming.count == 0
-            Streaming.new(stream_id: stream.stream_id, stream_title: stream.stream_title, 
+            Streaming.new(stream_id: stream.stream_id, stream_title: stream.stream_title,
             channel_id: stream.channel_id, channel_title: stream.channel_title, streamer: stream.streamer)
           else
-          Streaming.last.update(stream_id: stream.stream_id, stream_title: stream.stream_title, 
+          Streaming.last.update(stream_id: stream.stream_id, stream_title: stream.stream_title,
             channel_id: stream.channel_id, channel_title: stream.channel_title, streamer: stream.streamer)
           end
-          Video.last.update(vid_id: stream.stream_id, vid_title: stream.stream_title, 
+          Video.last.update(vid_id: stream.stream_id, vid_title: stream.stream_title,
             channel_id: stream.channel_id, vid_duration: 0)
           has_available_stream = true
           counter.current_index += 1
@@ -38,38 +38,38 @@ class VideoJob < ApplicationJob
     else
       live = rand(0..1)
       videos = Yt::Collections::Videos.new
-      if live == 1 
+      if live == 1
        vid = videos.where(order: 'viewCount', q: 'fun streaming dota', videoEmbeddable: true)
        max = vid.count
-       # byebug 
+       # byebug
        count = rand(80..max)
-       @live = vid.take(count).last 
+       @live = vid.take(count).last
        video(@live)
        Video.last.update(vid_id: @details[0] , vid_duration: @details[1],
-        vid_title: @details[2], channel_title: @details[3], 
+        vid_title: @details[2], channel_title: @details[3],
         channel_id: @details[4], video_type: 'prev')
-       else 
+       else
         vid = videos.where(order: 'viewCount', q: 'dota 2 live stream', event_type: 'live', videoEmbeddable: true)
         max = vid.count
-        # byebug 
+        # byebug
         count = rand(0..max)
         @live = vid.take(count).last
         video(@live)
         Video.last.update(vid_id: @details[0] , vid_duration: @details[1],
-            vid_title: @details[2], channel_title: @details[3], 
+            vid_title: @details[2], channel_title: @details[3],
             channel_id: @details[4], video_type: 'live')
-     end 
+     end
        CleanVisitsEventsJob.perform_now
     end
   end
 
   def video(vid)
-    @details = [] 
-    @details << @live.id 
+    @details = []
+    @details << @live.id
     @details << @live.duration/2
     @details << @live.title
     @details << @live.channel_title
     @details << @live.channel_id
-    return @details 
-  end 
+    return @details
+  end
 end
