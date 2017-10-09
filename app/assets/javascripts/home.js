@@ -1,59 +1,50 @@
 
-
-
 function deleteChild(){
   $('.message').first().remove();
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
-var cats = new Date(document.getElementById('cat').innerText);
-console.log(cats);
-var date = new Date(new Date().toISOString());
-console.log(date);
-var Milliseconds = date.getTime() - cats.getTime();
-console.log(Milliseconds);
-var Seconds = Milliseconds / 1000;
-var begin = 60 - Seconds;
-console.log(Seconds);
-console.log(begin);
-var fff = Math.ceil(begin);
-console.log(fff);
+  ////////////////// Method that calculates the video remaining time on page load /////////////////////////////////
+  var cats = new Date(document.getElementById('cat').innerText);
+  var date = new Date(new Date().toISOString());
+  var Milliseconds = date.getTime() - cats.getTime();
+  var Seconds = Milliseconds / 1000;
+  var begin = 60 - Seconds;
+  var fff = Math.ceil(begin);
 
-time = fff
-var timer = {
-  timerFunction: setInterval(function(){
-    time -= 1;
-    document.getElementById("timer").innerHTML =  "<p>Count<br>Down</br></p> "+time;
-  }, 1000)
-};
-
+    time = fff;
+/////////////////// Method that counts down clock on countdowm timer ///////////////////////////
+      var timer = {
+        timerFunction: setInterval(function(){
+          if(time > 0){
+            time -= 1
+            document.getElementById("timer").innerHTML =  "<p>Count<br>Down</br></p> "+time;
+          } else {
+            document.getElementById("timer").innerHTML =  "<p>Please wait</p> ";
+            }
+          }, 1000)
+      };
 }, false);
-// function getTime() {
-//   var created = document.getElementById('cat').innerHTML;
-//
-//
-// }
-// var myDate2 = new Date(created)
 
 $(document).ready(function(){
-  console.log();
+  ////////////////// Method that autoscrolls the chat room on page load ////////////////////////
   $('#messages').animate({
   scrollTop: $('#messages').get(0).scrollHeight}, 1000);
+  ////////////////// Method that adds user name to chat and show message send button ////////////
     $("#user_button").on('click', function(e){
     e.preventDefault();
     name = $("#username").val();
     $('#chat-username').hide();
     $('#chat-input').show();
     });
-debugger
+///////////////////// Method that removes first child when the message count gets to high /////////
       $("#messages").bind("DOMSubtreeModified",function(){
         length = $('.message').length
         if(length > 28){
-          deleteChild()
-        };
-      $('#messages').animate({
-      scrollTop: $('#messages').get(0).scrollHeight}, 1000);
-      });
-
+        deleteChild()};
+  ///////////////////// Method that scrolls down after a message has be posted ////////////////////
+        $('#messages').animate({
+          scrollTop: $('#messages').get(0).scrollHeight}, 1000);
+        });
 });

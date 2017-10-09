@@ -19,10 +19,8 @@
 //= require ahoy
 //= require_tree .
 
-
-setInterval(function(e){
-
-
+document.addEventListener('DOMContentLoaded', function() {
+	setInterval(function(e){
 	// make if statement, if the video is different then ajax and change the video. every 5 seconds the js will check
 	var old_id = document.getElementsByClassName('video_id');
 	  $.ajax({
@@ -93,3 +91,4 @@ document.addEventListener("turbolinks:load", function() {
     })
 });
 });
+}, false);
