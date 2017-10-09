@@ -38,6 +38,8 @@ gem 'omniauth-google-oauth2'
 # Youtube API gem
 gem 'yt', '~> 0.28.0'
 
+gem 'rest-client'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -66,9 +68,10 @@ gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'sidekiq'
 
-
+gem "redis-rails", github: 'redis-store/redis-rails'
 # gem 'redis'
 # gem 'redis-namespace'
+gem 'redis-store'
 
 # Jquery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
@@ -76,7 +79,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Ahoy
 gem 'ahoy_matey'
 
-gem "sidekiq-cron", "~> 0.4.0"
+gem "sidekiq-cron"
 
 # Database Cleaner
 gem 'database_cleaner'
