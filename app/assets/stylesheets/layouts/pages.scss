@@ -38,18 +38,39 @@
   vertical-align: middle;
 }
 #timer {
+  font-family: 'Press Start 2P', cursive;
   width: 100%;
   background: #201E1F;
-  border: 2px solid #E21B14;
+  padding: .2rem;
   color: #E21B14;
-  border-radius: 5px;
   display: flex;
   align-items: center;
   text-transform: uppercase;
   justify-content: space-around;
-  box-shadow: $shadow;
+  position: relative;
+  &:before,&:after {
+    content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: content-box;
+        z-index: -2;
+    }
+    &:before {
+        top: -$outline-width;
+        left: 0;
+        border-top: $outline-width darken($red,5%) solid;
+        border-bottom: $outline-width darken($red,5%) solid;
+    }
+    &:after {
+        left: -$outline-width;
+        top: 0;
+        border-left: $outline-width darken($red,5%) solid;
+        border-right: $outline-width darken($red,5%) solid;
+    }
   p {
     margin-bottom: 0;
+    text-align: center;
   }
   strong {
     font-size: 1.8rem;
@@ -84,6 +105,7 @@
 }
 .progress-bar {
   height: 30px;
+  padding-left: 10px;
   background-color: $red;
   box-shadow: inset (-$shadow-width) (-$shadow-width) 0px 0px $red-shadow;
 }

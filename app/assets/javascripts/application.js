@@ -53,6 +53,10 @@ setInterval(function(e){
 					 $("#vid-title").text(data.data[6].vid_title)
 					 $("#vid-username").text(data.data[6].channel_title)
 					 $("#btn-keep").removeClass("disabled");
+					 $(".coin").css("animation-duration","3s");
+					 $(".coin").fadeIn( 1000, function() {
+		 		 	});
+		 			$("#coin small").text("Continue Stream?");
 	    	}
 
 	    },
@@ -68,8 +72,8 @@ document.addEventListener("turbolinks:load", function() {
 		else {
 			ahoy.track("Press keep button","Keep playing");
 			$("#btn-keep").addClass("disabled");
-			$(".coin").fadeOut( 2000, function() {
-				$(".coin").css("animation-duration",".2s");
+			$(".coin").css("animation-duration",".2s");
+			$(".coin").fadeOut( 1000, function() {
 		 	});
 			$("#coin small").text("Thanks!");
 
@@ -98,3 +102,17 @@ document.addEventListener("turbolinks:load", function() {
 document.addEventListener("turbolinks:load", function() {
 	$('.btn-subscribe').prepend('<div class="hover"><span></span><span></span><span></span><span></span><span></span></div>');
 });
+
+// document.addEventListener("turbolinks:load", function() {
+// 	if($('.progress-bar').css('width') == "0px") {
+// 		$('.progress-bar').css({
+// 			'position':'relative',
+// 			'left':'10px'
+// 		});
+// 	}
+// 	else {
+// 		$('.progress-bar').css({
+// 			'position':'static',
+// 		});
+// 	}
+// });
