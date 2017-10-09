@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
 					var totalKeeps = parseInt($('#current-keeps').val())
 					var totalVisits = parseInt($('#current-viewers').html())
 					var val = (totalKeeps / totalVisits) * 100 + '%';
-					$('.progress-bar').width(val).text(val)
+					$('.progress-bar').width(val)
+					$('.progress-bar span').text(val)
+
 
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("success");
@@ -91,7 +93,8 @@ document.addEventListener("turbolinks:load", function() {
 					var totalKeeps = parseInt($('#current-keeps').val())
 					var totalVisits = parseInt($('#current-viewers').html())
 					var val = (totalKeeps / totalVisits) * 100 + '%';
-					$('.progress-bar').width(val).text(val)
+					$('.progress-bar').width(val)
+					$('.progress-bar span').text(val)
 				}
 			}) //end ajax
 		} //end if else statement
