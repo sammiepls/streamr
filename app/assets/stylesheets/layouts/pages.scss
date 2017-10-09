@@ -105,7 +105,6 @@
 }
 .progress-bar {
   height: 30px;
-  padding-left: 10px;
   background-color: $red;
   box-shadow: inset (-$shadow-width) (-$shadow-width) 0px 0px $red-shadow;
 }
@@ -123,4 +122,10 @@ footer {
  right: 0;
  bottom: 10px;
  left: 0;
+ span {
+   cursor: pointer;
+ }
+ .modal-dialog {
+   top: 25%;
+ }
 }
