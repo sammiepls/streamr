@@ -20,7 +20,7 @@
 //= require chardinjs
 //= require_tree .
 //
-// document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 	setInterval(function(e){
 	// make if statement, if the video is different then ajax and change the video. every 5 seconds the js will check
 	var old_id = document.getElementsByClassName('video_id');
@@ -61,7 +61,9 @@
 
 	    },
 	  });
-}, 5000);
+}, 3000);
+
+}); 
 
 document.addEventListener("turbolinks:load", function() {
 
