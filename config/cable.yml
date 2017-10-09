@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url:  redis://h:p4a22bbd6a60e92ceb7f316ae52e6265bf343ca851cc8132db189a4cc2c80c85c@ec2-34-233-181-119.compute-1.amazonaws.com:59789
   channel_prefix: streamr_production
