@@ -18,13 +18,13 @@
     </div>
     <div class='col-4'>
       <div class='row justify-content-center'>
-        <div class='col-12 mb-4'><!-- Subscribe button -->
+        <div class='col-12 mb-4' data-intro="If you like the streamr, subscribe to their channel!" data-position="right"><!-- Subscribe button -->
         <%= link_to(subscribe_path(@params[3]), class: "btn-subscribe") do %>
           <i class='fa fa-fw fa-plus'></i>Subscribe
         <% end %>
         </div><!-- Subscribe button end -->
         <div class='col-12 mb-4'> <!-- Timer -->
-          <div id='timer'>
+          <div id='timer' data-intro="A stream lasts for 1 minute, and will switch to a new stream once this timer reaches 0" data-position="left">
           </div>
         </div><!-- Timer End-->
       </div>
@@ -36,7 +36,7 @@
   <div class="row row-eq-height">
 
     <div class="col-8">
-      <div class="stream-container"><!-- Videostream container -->
+      <div class="stream-container" data-intro="We choose a lucky streamr and help give them more views!" data-position="left"><!-- Videostream container -->
         <input class="video_id" name="vid_id" type="hidden" value=<%= @params[0] %>>
         <iframe class='video' id=<%= @params[0] %> width='700' height='500' src='https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1] %>'></iframe>
       </div><!-- Videostream container end -->
@@ -50,7 +50,7 @@
             <input type='hidden' id="current-keeps" name="vid_id" type="hidden" value="<%= @total_keeps %>">
           </span>
           <%= button_tag(id:"btn-keep") do %>
-            <div id="coin">
+            <div id="coin" data-intro="If you like the streamr, click here to give them a continue token to watch another minute of their stream!" data-position="right">
               <div class="coin"></div>
               <small>Continue Stream?</small>
             </div>
@@ -62,7 +62,7 @@
       </div>
       <div class='row'>
         <div class='col-12'>
-          <div class="progress">
+          <div class="progress" data-intro="This bar shows how many people want the streamr to continue. Once it's more than 50%, their stream will continue for another minute!" data-position="right">
             <div class="progress-bar d-flex justify-content-center align-items-center" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
               <span class="sr-only">0%</span>
             </div>
@@ -72,7 +72,7 @@
       <div class='row mt-4'>
         <div class="col-12">
 
-          <div class='chat-wrapper'>
+          <div class='chat-wrapper' data-intro="Feel free to chat with other users on the site" data-position="right">
             <div class='chat-title'>
               <h1 class='h5'>Chatroom</h1>
             </div>
