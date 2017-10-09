@@ -69,7 +69,7 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'sidekiq'
 
 gem "redis-rails", github: 'redis-store/redis-rails'
-gem 'redis'
+gem 'redis', '~> 3.3'
 # gem 'redis-namespace'
 gem 'redis-store'
 
