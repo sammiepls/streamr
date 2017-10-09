@@ -38,11 +38,18 @@ class VideoJob < ApplicationJob
     else
       live = rand(0..1)
       videos = Yt::Collections::Videos.new
+
       if live == 1 
-       vid = videos.where(order: 'viewCount', q: 'fun streaming dota', videoEmbeddable: true)
+       luck = rand(0..1)
+          if luck == 1 
+            vid = videos.where(order: 'viewCount', q: 'fun streaming dota', videoEmbeddable: true, videoDuration: 'long')
+            num = 70 
+          else 
+            vid = videos.where(order: 'viewCount', q: 'fun streaming dota', videoEmbeddable: true, videoDuration: 'medium')
+            num = 40 
+          end 
        max = vid.count
-       # byebug 
-       count = rand(80..max)
+       count = rand(num..max)
        @live = vid.take(count).last 
        video(@live)
        Video.last.update(vid_id: @details[0] , vid_duration: @details[1],
@@ -51,7 +58,6 @@ class VideoJob < ApplicationJob
        else 
         vid = videos.where(order: 'viewCount', q: 'dota 2 live stream', event_type: 'live', videoEmbeddable: true)
         max = vid.count
-        # byebug 
         count = rand(0..max)
         @live = vid.take(count).last
         video(@live)
