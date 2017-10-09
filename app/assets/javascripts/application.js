@@ -18,8 +18,9 @@
 //= require bootstrap
 //= require ahoy
 //= require_tree .
-
-setInterval(function(e){
+//
+// document.addEventListener('DOMContentLoaded', function() {
+	setInterval(function(e){
 	// make if statement, if the video is different then ajax and change the video. every 5 seconds the js will check
 	var old_id = document.getElementsByClassName('video_id');
 	  $.ajax({
@@ -40,9 +41,8 @@ setInterval(function(e){
 
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("success");
-					 time = 60
-					 timer['timerFunction'];
-
+					 time = 60;
+				 	 timer['timerFunction'];
 	    	   $('.video').remove()
 	    	   $('.video_id').remove()
 	    	   $('.stream-container').append("\
