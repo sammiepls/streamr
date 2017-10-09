@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
 		if current_user
 
-			user.update_token(auth_hash)
+			user.update_token
 
 		else
 
