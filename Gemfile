@@ -84,6 +84,5 @@ gem "sidekiq-cron"
 # Database Cleaner
 gem 'database_cleaner'
 
-group :assets do
-  gem "chardinjs-rails"
-end
+# Chardinjs
+gem "chardinjs-rails"

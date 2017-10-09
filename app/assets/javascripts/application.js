@@ -103,16 +103,10 @@ document.addEventListener("turbolinks:load", function() {
 	$('.btn-subscribe').prepend('<div class="hover"><span></span><span></span><span></span><span></span><span></span></div>');
 });
 
-// document.addEventListener("turbolinks:load", function() {
-// 	if($('.progress-bar').css('width') == "0px") {
-// 		$('.progress-bar').css({
-// 			'position':'relative',
-// 			'left':'10px'
-// 		});
-// 	}
-// 	else {
-// 		$('.progress-bar').css({
-// 			'position':'static',
-// 		});
-// 	}
-// });
+document.addEventListener("turbolinks:load", function() {
+	$('#open-tour').click(function() {
+		$('body').chardinJs('start')
+		$( ".chardinjs-helper-layer" ).first().addClass("login-show");
+		$( ".chardinjs-tooltip" ).first().css("top","-10px");
+	});
+});
