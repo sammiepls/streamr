@@ -303,6 +303,7 @@ DEPENDENCIES
   pg
   puma (~> 3.7)
   rails (~> 5.1.4)
+  redis
   redis-rails!
   redis-store
   rest-client
