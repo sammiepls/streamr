@@ -5,12 +5,10 @@ body {
   color: #fff;
   outline: none;
   background-attachment: fixed;
+  height: 100vh;
 }
 button,input {
   outline: none!important;
-}
-.container {
-  max-width: 1200px;
 }
 a {
   &:hover {
