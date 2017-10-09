@@ -17,9 +17,11 @@
 //= require popper
 //= require bootstrap
 //= require ahoy
+//= require chardinjs
 //= require_tree .
-
-setInterval(function(e){
+//
+// document.addEventListener('DOMContentLoaded', function() {
+	setInterval(function(e){
 	// make if statement, if the video is different then ajax and change the video. every 5 seconds the js will check
 	var old_id = document.getElementsByClassName('video_id');
 	  $.ajax({
@@ -40,9 +42,8 @@ setInterval(function(e){
 
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("success");
-					 time = 60
-					 timer['timerFunction'];
-
+					 time = 60;
+				 	 timer['timerFunction'];
 	    	   $('.video').remove()
 	    	   $('.video_id').remove()
 	    	   $('.stream-container').append("\
@@ -102,16 +103,10 @@ document.addEventListener("turbolinks:load", function() {
 	$('.btn-subscribe').prepend('<div class="hover"><span></span><span></span><span></span><span></span><span></span></div>');
 });
 
-// document.addEventListener("turbolinks:load", function() {
-// 	if($('.progress-bar').css('width') == "0px") {
-// 		$('.progress-bar').css({
-// 			'position':'relative',
-// 			'left':'10px'
-// 		});
-// 	}
-// 	else {
-// 		$('.progress-bar').css({
-// 			'position':'static',
-// 		});
-// 	}
-// });
+document.addEventListener("turbolinks:load", function() {
+	$('#open-tour').click(function() {
+		$('body').chardinJs('start')
+		$( ".chardinjs-helper-layer" ).first().addClass("login-show");
+		$( ".chardinjs-tooltip" ).first().css("top","-10px");
+	});
+});
