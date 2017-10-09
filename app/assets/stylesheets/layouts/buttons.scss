@@ -147,7 +147,7 @@
   animation-iteration-count: infinite;
   transition: .2s all ease;
   background-repeat: no-repeat;
-  &:hover {
+  &:hover, &:focus {
     background-position-y: -7px;
     animation-duration: .3s;
   }
