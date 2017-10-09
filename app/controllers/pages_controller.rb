@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   def home
     # Testing Ahoy Vists
     ahoy.track_visit
-    ahoy.track "btn-keep", title: "Keep playing"
     @total_visits = Visit.all.count
     @total_keeps = Ahoy::Event.distinct.count('visit_id')
 
@@ -13,11 +12,31 @@ class PagesController < ApplicationController
     #  For video 
     video_params 
     @video = Video.last
+  end
 
+  def voting
+    @total_keeps = Ahoy::Event.distinct.count('visit_id')
+    byebug 
+    json_content = {data: @total_keeps}
+  	render json: json_content
   end
 
   def update_video
-    video_params
+    # byebug
+    ahoy.track_visit
+  	@params = []
+  	@params << Video.last.vid_id
+  	@params << Video.last.vid_duration
+    @params << Video.last.channel_title
+    @params << Video.last.channel_id
+    @params << Visit.all.count
+    @params << Ahoy::Event.distinct.count('visit_id')
+    @params << Video.last
+  	# byebug
+  	# p "run================================="
+  	# respond_to do |format|
+  	# 	format.js
+  	# end
   	json_content = {data: @params}
   	render json: json_content
   end
