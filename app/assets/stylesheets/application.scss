@@ -1,8 +1,10 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,600');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Ubuntu+Mono');
 @import "base/variables";
+@import "base/global";
+@import "layouts/buttons";
 @import "layouts/navigation";
 @import "layouts/pages";
-@import "home"
+@import "layouts/chat";
