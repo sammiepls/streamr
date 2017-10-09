@@ -113,10 +113,13 @@
   font-weight: 600;
   font-size: 1.2rem;
 }
+.stream-container {
+  height: 100%;
+}
 .stream-container iframe{
   width: 100%;
+  height: 100%;
   border: 0;
-  border-radius: 20px!important;
 }
 footer {
  position: absolute;
@@ -126,7 +129,7 @@ footer {
  span {
    cursor: pointer;
  }
- .modal-dialog {
-   top: 25%;
- }
+}
+.modal.show .modal-dialog {
+   top: 15%;
 }
