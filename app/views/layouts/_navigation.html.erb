@@ -10,15 +10,19 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class='navbar-nav ml-auto'>
-
+        <li class='navbar-item'>
+          <a id='open-tour' data-toggle="chardinjs">How to use Streamr</a>
+        </li>
         <% if current_user %>
         <li class="navbar-item">
-            <%= link_to "Queue Your Stream now", queue_path, class: "navbar-item" %>
+          <%= link_to "Queue Your Stream now", queue_path, class: "navbar-item" %>
+        </li>
+        <li class="navbar-item">
             <%= link_to "Logout", logout_path, class: "navbar-item" %>
           </li>
           <% else %>
-          <li class="navbar-item">
-            <%= link_to "Login", login_path, class: "navbar-item" %>
+          <li class="navbar-item" data-intro="Log into your YouTube account to stream your live videos on Streamr!" data-position="left">
+            <%= link_to "Login", login_path, class:"navbar-item" %>
           </li>
         <% end %>
       </ul>
