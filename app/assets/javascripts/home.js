@@ -1,4 +1,3 @@
-
 function deleteChild(){
   $('.message').first().remove();
 }
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         timerFunction: setInterval(function(){
           if(time > 0){
             time -= 1
-            document.getElementById("timer").innerHTML =  "<p>Count<br>Down</br></p> "+time;
+            document.getElementById("timer").innerHTML =  "<p>Countdown</p> "+time;
           } else {
             document.getElementById("timer").innerHTML =  "<p>Please wait</p> ";
             }
