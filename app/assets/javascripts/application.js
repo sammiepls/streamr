@@ -17,6 +17,7 @@
 //= require popper
 //= require bootstrap
 //= require ahoy
+//= require chardinjs
 //= require_tree .
 //
 // document.addEventListener('DOMContentLoaded', function() {
