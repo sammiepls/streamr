@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @total_keeps = Ahoy::Event.distinct.count('visit_id')
 
     # For chat
-    @messages = Message.all
+    @messages = Message.all.order(:created_at)
 
     #  For video
     @params = []
@@ -53,6 +53,10 @@ class PagesController < ApplicationController
   #     @params << Video.last.channel_id
   #     @params << Visit.last
   #     return @params
-  # end 
+<<<<<<< HEAD
+  # end
+=======
+  # end
+>>>>>>> deleted an unused folder 'middleware' added a display order to the messages
 
 end
