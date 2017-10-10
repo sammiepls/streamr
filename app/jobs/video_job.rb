@@ -35,36 +35,20 @@ class VideoJob < ApplicationJob
   
     def play_stream(has_available_stream)
       while !has_available_stream && Stream.count > 0
-        if Counter.first.nil?
-          counter = Counter.new
-          counter.save
-        else
-          counter = Counter.first
-          if counter.current_index >= Stream.count
-            counter.current_index = 0
-            counter.save
-          end
-        end
-        stream = Stream.all[counter.current_index]
-        video = Yt::Video.new id: stream.stream_id
+        stream = Stream.last
+        # video = Yt::Video.new id: stream.stream_id
         #Stream in our database is no longer live
-        if video.live_broadcast_content != 'live'
-          stream.destroy
+        # if video.live_broadcast_content != 'live'
+        if Streaming.count == 0
+          Streaming.new(stream_id: stream.stream_id, stream_title: stream.stream_title,
+          channel_id: stream.channel_id, channel_title: stream.channel_title, streamer: stream.streamer)
         else
-            if Streaming.count == 0
-              Streaming.new(stream_id: stream.stream_id, stream_title: stream.stream_title,
-              channel_id: stream.channel_id, channel_title: stream.channel_title, streamer: stream.streamer)
-            else
-            Streaming.last.update(stream_id: stream.stream_id, stream_title: stream.stream_title,
-              channel_id: stream.channel_id, channel_title: stream.channel_title, streamer: stream.streamer)
-            end
-
-          Video.last.update(vid_id: stream.stream_id, vid_title: stream.stream_title,
-            channel_id: stream.channel_id, vid_duration: 0)
-          has_available_stream = true
-          counter.current_index += 1
-          counter.save
+        Streaming.last.update(stream_id: stream.stream_id, stream_title: stream.stream_title,
+          channel_id: stream.channel_id, channel_title: stream.channel_title, streamer: stream.streamer)
         end
+        Video.last.update(vid_id: stream.stream_id, vid_title: stream.stream_title,
+          channel_id: stream.channel_id, vid_duration: 0)
+        stream.destroy
       end
     end 
 
