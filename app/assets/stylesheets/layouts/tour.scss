@@ -8,6 +8,16 @@
   color: $red;
   font-family: 'Press Start 2P', cursive;
 }
+.queue-show::after {
+  content:'Queue your Stream now';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  color: $red;
+  font-family: 'Press Start 2P', cursive;
+}
 .chardinjs-overlay {
   opacity: .9!important;
 }
