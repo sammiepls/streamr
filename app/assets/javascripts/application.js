@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	    url:'/update',
 	    dataType: 'json',
 	    success: function(data){
-	    	console.log("ran");
+	    	// console.log("ran");
 	    	// debugger
 				$('#current-viewers').text(data.data[4])
 				$('#current-keeps').remove()
@@ -44,8 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("success");
+	    	   		 // var a = false; 
 					 time = 60;
 				 	 timer['timerFunction'];
+
 	    	   $('.video').remove()
 	    	   $('.video_id').remove()
 	    	   $('.stream-container').append("\
@@ -61,6 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		 			$("#coin small").text("Continue Stream?");
 	    	}
 
+	    	if (data.data[7] == 'prev' && time == 0 ) {
+	    		debugger
+	    		clearInterval(timer); 
+	    		// var a = true ;
+	    		console.log('timer');
+	    		document.getElementById("timer").innerHTML =  "<p>Video Kept</p>";
+	    	}
 	    },
 	  });
 }, 3000);
