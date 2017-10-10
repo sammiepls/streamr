@@ -1,16 +1,30 @@
 body {
   background: linear-gradient(to top, rgba(49, 8, 6, 0.8), rgba(56, 51, 63, 0.82)), url(bg.gif);
   background-position: center;
-  height: 100vh;
   font-family: 'Ubuntu Mono', monospace;
   color: #fff;
   outline: none;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex:1;
+}
+@media (min-width: 1200px) {
+.container {
+    max-width: 1280px;
+}
+}
+.col-9 {
+  padding-right: 20px;
+}
+.col-3 {
+  padding-left: 20px;
 }
 button,input {
   outline: none!important;
-}
-.container {
-  max-width: 1200px;
 }
 a {
   &:hover {
@@ -19,8 +33,18 @@ a {
 }
 h1,.h1 {
   font-family: 'Press Start 2P', cursive;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 .red {
   color: $red;
+}
+#flash_error {
+  background: rgba($red,.3);
+  text-align: center;
+  padding: 1rem;
+}
+#flash_success {
+  background: rgba($green,.3);
+  text-align: center;
+  padding: 1rem;
 }

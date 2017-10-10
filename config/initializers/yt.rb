@@ -4,4 +4,3 @@ Yt.configure do |config|
   config.client_secret = ENV['GOOGLE_CLIENT_SECRET']
   config.log_level = :debug
 end
-

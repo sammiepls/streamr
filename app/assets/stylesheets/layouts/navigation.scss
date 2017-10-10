@@ -1,9 +1,10 @@
 .navbar {
-  background: rgba($dark,.5);
+  background: $dark;
   color: $red;
   padding: 1rem;
   box-shadow: 0px 3px 4px 0px rgba($dark, 0.7);
   font-family: 'Press Start 2P', cursive;
+  font-size: .75rem;
   a {
     color: $red;
     transition: .3s all ease;
@@ -19,4 +20,7 @@
 }
 .navbar-nav li + li {
   margin-left: 2rem;
+}
+a#open-tour:hover {
+    color: #fff;
 }

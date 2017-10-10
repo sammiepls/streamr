@@ -5,7 +5,7 @@
   display: inline-block;
   position: relative;
   text-align: center;
-  font-size: .8rem;
+  font-size: 1rem;
   vertical-align: middle;
   padding: 1.2rem;
   font-family: 'Press Start 2P', cursive;
@@ -147,9 +147,9 @@
   animation-iteration-count: infinite;
   transition: .2s all ease;
   background-repeat: no-repeat;
-  &:hover {
+  &:hover, &:focus {
     background-position-y: -7px;
-    animation-duration: 1s;
+    animation-duration: .3s!important;
   }
 }
 #btn-keep {
