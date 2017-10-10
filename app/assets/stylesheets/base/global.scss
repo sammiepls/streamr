@@ -14,8 +14,14 @@ main {
 }
 @media (min-width: 1200px) {
 .container {
-    max-width: 1200px;
+    max-width: 1280px;
 }
+}
+.col-9 {
+  padding-right: 20px;
+}
+.col-3 {
+  padding-left: 20px;
 }
 button,input {
   outline: none!important;
