@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             time -= 1
             document.getElementById("timer").innerHTML =  "<p>Countdown</p> "+time;
           } else {
-            document.getElementById("timer").innerHTML =  "<p>Please wait</p>";
+            document.getElementById("timer").innerHTML =  "<p>Loading</p>";
             }
           }, 1000)
       };
