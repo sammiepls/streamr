@@ -122,3 +122,22 @@ document.addEventListener("turbolinks:load", function() {
 		}
 	});
 });
+
+
+document.addEventListener("turbolinks:load", function() {
+	/* Set the width of the side nbtn-affiliateavigation to 250px and the left margin of the page content to 250px */
+	$('#btn-affiliate').click(function() {
+		if($("#affiliate").width() == 0) {
+			$("#affiliate").css("width", "350px");
+			$("#affiliate").css("padding","2rem");
+			$("main").css("margin-left","350px");
+			$("#btn-affiliate").css("margin-left","350px");
+		}
+		else {
+			$("#affiliate").css("width", "0");
+			$("#affiliate").css("padding","0");
+			$("main").css("margin-left","auto");
+			$("#btn-affiliate").css("margin-left","0");
+		}
+	});
+});
