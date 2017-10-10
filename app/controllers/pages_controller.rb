@@ -36,6 +36,7 @@ class PagesController < ApplicationController
     @params << Visit.count
     @params << Ahoy::Event.distinct.count('visit_id')
     @params << Video.last
+    @params << Video.last.video_type
   	# byebug
   	# p "run================================="
   	# respond_to do |format|

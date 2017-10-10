@@ -13,18 +13,21 @@ document.addEventListener('DOMContentLoaded', function() {
   var fff = Math.ceil(begin);
 
     time = fff;
+    // a = true ; 
 /////////////////// Method that counts down clock on countdowm timer ///////////////////////////
       var timer = {
         timerFunction: setInterval(function(){
+          // if (a == true){
           if(time > 0){
             time -= 1
             document.getElementById("timer").innerHTML =  "<p>Countdown</p> "+time;
           } else {
             document.getElementById("timer").innerHTML =  "<p>Loading</p>";
             }
+          // };
           }, 1000)
       };
-}, false);
+});
 
 $(document).ready(function(){
 ////////////////// Method that autoscrolls the chat room on page load ////////////////////////
