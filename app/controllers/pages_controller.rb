@@ -53,6 +53,6 @@ class PagesController < ApplicationController
   #     @params << Video.last.channel_id
   #     @params << Visit.last
   #     return @params
-  # end 
+  # end
 
 end
