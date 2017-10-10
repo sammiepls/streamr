@@ -40,7 +40,7 @@ $(document).ready(function(){
 ///////////////////// Method that removes first child when the message count gets to high /////////
       $("#messages").bind("DOMSubtreeModified",function(){
         length = $('.message').length;
-        if(length > 28){
+        if(length > 40){
         deleteChild()};
 ///////////////////// Method that scrolls down after a message has be posted ////////////////////
         $('#messages').animate({
