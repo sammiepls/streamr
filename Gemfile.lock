@@ -96,7 +96,7 @@ GEM
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     errbase (0.0.3)
-    erubi (1.6.1)
+    erubi (1.7.0)
     et-orbi (1.0.7)
       tzinfo
     execjs (2.7.0)
