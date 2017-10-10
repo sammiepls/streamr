@@ -5,7 +5,9 @@ body {
   color: #fff;
   outline: none;
   background-attachment: fixed;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 button,input {
   outline: none!important;
