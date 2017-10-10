@@ -4,7 +4,7 @@ class StreamsController < ApplicationController
 		channel = account.channel
 		live = channel.videos.where(type: 'video', eventType:'live').first
 		if live.nil?
-			redirect_to root_path, flash: { error: "Sorry, you don't have a live stream currently, please try again" }
+			redirect_to root_path, flash: { error: "Sorry, you don't have a live stream currently, please try again a few seconds later" }
 		else
 			if Stream.find_by(stream_id: live.id)
 				redirect_to root_path, flash: { error: "Your stream is already in queue, please be patient" }

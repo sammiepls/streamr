@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def subscribe
-
     session[:channel_id] = subscribe_params[:channel_id]
 
     if !(current_user)
