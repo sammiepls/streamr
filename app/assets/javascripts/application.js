@@ -114,7 +114,7 @@ document.addEventListener("turbolinks:load", function() {
 		if($('.navbar-item').hasClass('login')) {
 			$( ".chardinjs-helper-layer" ).first().addClass("login-show");
 			$( ".chardinjs-tooltip" ).first().css("top","-10px");
-			$( ".chardinjs-tooltip.chardinjs-left:after").first().css("top","28%");
+			$( ".chardinjs-tooltip.chardinjs-left").first().css("margin-left","-224px");
 		}
 		else {
 			$( ".chardinjs-helper-layer" ).first().addClass("queue-show");
