@@ -38,7 +38,7 @@
     <div class="col-8">
       <div class="stream-container" data-intro="We choose a lucky streamr and help give them more views!" data-position="left"><!-- Videostream container -->
         <input class="video_id" name="vid_id" type="hidden" value=<%= @params[0] %>>
-        <iframe class='video' id=<%= @params[0] %> width='700' height='500' src='https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1] %>'></iframe>
+        <iframe class='video' id=<%= @params[0] %> width='700' height='500' allowfullscreen, src='https://www.youtube.com/embed/<%= @params[0] %>?autoplay=1&start=<%= @params[1] %>'></iframe>
       </div><!-- Videostream container end -->
     </div>
 

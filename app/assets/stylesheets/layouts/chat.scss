@@ -42,8 +42,7 @@
   border: 0;
   padding: .5rem;
   border-radius: 10px;
-  width: 100%;
-  margin-right: 10px;
+  width: 100%;  
 }
 #username {
   width: auto;
@@ -52,6 +51,7 @@
   cursor: pointer;
   background: rgba( darken( $dark, 10% ), .5);
   color: #fff;
+  margin-left: 10px; 
 }
 #messages{
   width: 100%;
