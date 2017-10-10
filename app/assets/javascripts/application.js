@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	  });
 }, 3000);
 
-}); 
+});
 
 document.addEventListener("turbolinks:load", function() {
 
@@ -111,7 +111,14 @@ document.addEventListener("turbolinks:load", function() {
 document.addEventListener("turbolinks:load", function() {
 	$('#open-tour').click(function() {
 		$('body').chardinJs('start')
-		$( ".chardinjs-helper-layer" ).first().addClass("login-show");
-		$( ".chardinjs-tooltip" ).first().css("top","-10px");
+		if($('.navbar-item').hasClass('login')) {
+			$( ".chardinjs-helper-layer" ).first().addClass("login-show");
+			$( ".chardinjs-tooltip" ).first().css("top","-10px");
+			$( ".chardinjs-tooltip.chardinjs-left").first().css("margin-left","-224px");
+		}
+		else {
+			$( ".chardinjs-helper-layer" ).first().addClass("queue-show");
+			$( ".chardinjs-tooltip" ).first().css("top","-10px");
+		}
 	});
 });

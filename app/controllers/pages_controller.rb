@@ -6,13 +6,13 @@ class PagesController < ApplicationController
     @total_visits = Visit.all.count
     @total_keeps = Ahoy::Event.distinct.count('visit_id')
 
-    # For chat 
+    # For chat
     @messages = Message.all
 
-    #  For video 
-    @params = [] 
-   @params << Video.last.vid_id 
-   @params << Video.last.vid_duration 
+    #  For video
+    @params = []
+   @params << Video.last.vid_id
+   @params << Video.last.vid_duration
    @params << Video.last.channel_title
    @params << Video.last.channel_id
     @video = Video.last
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
   def voting
     @total_keeps = Ahoy::Event.distinct.count('visit_id')
-    # byebug 
+    # byebug
     json_content = {data: @total_keeps}
   	render json: json_content
   end
@@ -28,12 +28,12 @@ class PagesController < ApplicationController
   def update_video
     # byebug
     ahoy.track_visit
-  	@params = [] 
-    @params << Video.last.vid_id 
-    @params << Video.last.vid_duration 
+  	@params = []
+    @params << Video.last.vid_id
+    @params << Video.last.vid_duration
     @params << Video.last.channel_title
     @params << Video.last.channel_id
-    @params << Visit.count 
+    @params << Visit.count
     @params << Ahoy::Event.distinct.count('visit_id')
     @params << Video.last
   	# byebug
@@ -45,20 +45,14 @@ class PagesController < ApplicationController
   	render json: json_content
   end
 
-  # def video_params 
-  #     @params = [] 
-  #     @params << Video.last.vid_id 
-  #     @params << Video.last.vid_duration 
+  # def video_params
+  #     @params = []
+  #     @params << Video.last.vid_id
+  #     @params << Video.last.vid_duration
   #     @params << Video.last.channel_title
   #     @params << Video.last.channel_id
-  #     @params << Visit.last 
-  #     return @params 
-  # end 
-
-  private
-
-  def keep?(total_keeps,total_visits)
-    (total_keeps / total_visits.to_f) * 100 > 50 ? true : false
-  end
+  #     @params << Visit.last
+  #     return @params
+  # end
 
 end

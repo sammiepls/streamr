@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def subscribe
-    
+
     session[:channel_id] = subscribe_params[:channel_id]
 
     if !(current_user)
@@ -22,6 +22,9 @@ class UsersController < ApplicationController
         channel = Yt::Channel.new id: session[:channel_id], auth: account
         if channel.subscribed? == false
           channel.subscribe
+          flash[:success] = "Successfully subscribed to channel."
+        elsif channel.subscribed? == true
+          flash[:error] = "Already subscribed to channel."
         end
 
     session[:channel_id] = nil

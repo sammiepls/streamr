@@ -1,13 +1,37 @@
 .login-show::after {
   content:'Login';
   position: absolute;
+  top: 5px;
+  bottom: 0;
+  left: 0;
+  right:0;
+  color: $red;
+  font-family: 'Press Start 2P', cursive;
+  font-size: .75rem;
+}
+.queue-show::after {
+  content:'Queue your Stream now';
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right:0;
   color: $red;
   font-family: 'Press Start 2P', cursive;
+  font-size: .75rem;
 }
 .chardinjs-overlay {
   opacity: .9!important;
+}
+.chardinjs-tooltip {
+  max-width: 300px!important;
+}
+.chardinjs-tooltip.chardinjs-left:after {
+    right: -100px;
+}
+.chardinjs-tooltip.chardinjs-right:before {
+    width: 30px;
+}
+.chardinjs-tooltip.chardinjs-right:before {
+    left: -40px;
 }
