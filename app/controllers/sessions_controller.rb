@@ -7,15 +7,11 @@ class SessionsController < ApplicationController
 		user = User.from_omniauth(auth_hash)
 
 		if current_user
-
 			user.update_token
-
 		else
-
 			session[:user_id] = user.uid
 			account = Yt::Account.new access_token: user.oauth_token
 			flash[:success] = "Welcome, #{user.name}"
-
 		end
 
 			if session[:channel_id]
