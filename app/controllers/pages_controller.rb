@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @total_keeps = Ahoy::Event.distinct.count('visit_id')
 
     # For chat
-    @messages = Message.all
+    @messages = Message.all.order(:created_at)
 
     #  For video
     @params = []
