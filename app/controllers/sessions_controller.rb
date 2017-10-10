@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
 	# GET /auth/google_oauth2/callback
 	def create
-		byebug
+		
 		if current_user
 
 			current_user.update_token
