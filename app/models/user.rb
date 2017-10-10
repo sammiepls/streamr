@@ -7,7 +7,7 @@ class User < ApplicationRecord
 		user.email = auth.info.email
 		user.image = auth.info.image
 		user.oauth_token = auth.credentials.token
-		user.oauth_refresh_token = auth.credentials.refresh_token
+		user.oauth_refresh_token = auth.credentials.refresh_token unless user.oauth_refresh_token
 		user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 		user.save!
 		@user = user
