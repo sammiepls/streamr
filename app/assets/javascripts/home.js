@@ -3,7 +3,7 @@ function deleteChild(){
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbolinks:load', function() {
 ////////////////// Method that calculates the video remaining time on page load /////////////////////////////////
   var cats = new Date(document.getElementById('cat').innerText);
   var date = new Date(new Date().toISOString());
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var fff = Math.ceil(begin);
 
     time = fff;
-    // a = true ; 
+    // a = true ;
 /////////////////// Method that counts down clock on countdowm timer ///////////////////////////
       var timer = {
         timerFunction: setInterval(function(){
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 });
 
-$(document).ready(function(){
+document.addEventListener('turbolinks:load', function(){
 ////////////////// Method that autoscrolls the chat room on page load ////////////////////////
   $('#messages').animate({
   scrollTop: $('#messages').get(0).scrollHeight}, 1000);
