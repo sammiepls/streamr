@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	    	if (old_id[0].value != data.data[0]) {
 	    	   console.log("success");
-	    	   		 // var a = false; 
+	    	   		 // var a = false;
 					 time = 60;
 				 	 timer['timerFunction'];
 
@@ -63,10 +63,19 @@ document.addEventListener('DOMContentLoaded', function() {
 		 			$("#coin small").text("Continue Stream?");
 	    	}
 
+				if(Math.round((totalKeeps / totalVisits) * 100 ) > 50) {
+					$('.progress-bar').css("background-color","#48883E");
+					$('.progress-bar').css("box-shadow","inset -4px -4px 0px 0px #305f29");
+					$('.progress').css("box-shadow","-4px -4px 0px 0px #305f29");
+				}
+				else {
+					$('.progress-bar').css("background-color","#E21B14");
+					$('.progress-bar').css("box-shadow","inset -4px -4px 0px 0px #9d1813");
+					$('.progress').css("box-shadow","-4px -4px 0px 0px #9d1813");
+				}
+
 	    	if (data.data[7] == 'prev' && time == 0 ) {
-	    		debugger
-	    		clearInterval(timer); 
-	    		// var a = true ;
+	    		clearInterval(timer);
 	    		console.log('timer');
 	    		document.getElementById("timer").innerHTML =  "<p>Video Kept</p>";
 	    	}
@@ -104,6 +113,16 @@ document.addEventListener("turbolinks:load", function() {
 					var val = (Math.round((totalKeeps / totalVisits) * 100 ))  + '%';
 					$('.progress-bar').width(val)
 					$('.progress-bar span').text(val)
+					if(Math.round((totalKeeps / totalVisits) * 100 ) > 50) {
+						$('.progress-bar').css("background-color","#48883E");
+						$('.progress-bar').css("box-shadow","inset -4px -4px 0px 0px #305f29");
+						$('.progress').css("box-shadow","-4px -4px 0px 0px #305f29");
+					}
+					else {
+						$('.progress-bar').css("background-color","#E21B14");
+						$('.progress-bar').css("box-shadow","inset -4px -4px 0px 0px #9d1813");
+						$('.progress').css("box-shadow","-4px -4px 0px 0px #9d1813");
+					}
 				}
 			}) //end ajax
 		} //end if else statement
