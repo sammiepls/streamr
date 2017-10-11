@@ -17,10 +17,21 @@
 }
 .logo {
   width: 80%;
+  &:hover {
+    animation-name: bounce;
+    animation-duration: 1s;
+  }
 }
 .navbar-nav li + li {
   margin-left: 2rem;
 }
 a#open-tour:hover {
     color: #fff;
+}
+
+
+@keyframes bounce {
+   0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+   40% {transform: translateY(-20px);}
+   60% {transform: translateY(-10px);}
 }
