@@ -12,8 +12,10 @@ class UsersController < ApplicationController
 
     if !(current_user)
 
-      redirect_to login_path and return
-
+      # redirect_to login_path and return
+      respond_to do |format|
+        format.html { redirect_to login_path and return}
+      end
     else
 
     current_user.update_token
@@ -26,8 +28,11 @@ class UsersController < ApplicationController
           flash[:error] = "Already subscribed to channel."
         end
 
-    session[:channel_id] = nil
-    redirect_to root_path
+        respond_to do |format|
+          format.js
+        end
+    # session[:channel_id] = nil
+    # redirect_to root_path
     end
   end
 

@@ -15,7 +15,7 @@
         </li>
         <% if current_user %>
         <li class="navbar-item queue" data-intro="When you start a stream, queue your stream and we'll play it!" data-position="left">
-          <%= link_to "Queue Your Stream now", queue_path, class: "nav-link" %>
+          <%= link_to "Queue Your Stream now", queue_path, class: "nav-link", remote: true %>
         </li>
         <li class="navbar-item">
             <%= link_to "Logout", logout_path, class: "nav-link" %>

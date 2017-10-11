@@ -3,7 +3,7 @@ function deleteChild(){
 }
 
 
-document.addEventListener('turbolinks:load', function() {
+$(document).ready(function() {
 ////////////////// Method that calculates the video remaining time on page load /////////////////////////////////
   var cats = new Date(document.getElementById('cat').innerText);
   var date = new Date(new Date().toISOString());
@@ -29,7 +29,7 @@ document.addEventListener('turbolinks:load', function() {
       };
 });
 
-document.addEventListener('turbolinks:load', function(){
+$(document).ready(function(){
 ////////////////// Method that autoscrolls the chat room on page load ////////////////////////
   $('#messages').animate({
   scrollTop: $('#messages').get(0).scrollHeight}, 1000);

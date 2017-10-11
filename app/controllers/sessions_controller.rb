@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
 	# GET /auth/google_oauth2/callback
 	def create
-		
+
 		if current_user
 
 			current_user.update_token
@@ -24,12 +24,18 @@ class SessionsController < ApplicationController
 			else
 			 	redirect_to root_path
 			end
+			# respond_to do |format|
+			# 	format.js
+			# end
 	end
 
 	def destroy
 		session[:user_id] = nil
 		session[:channel_id] = nil
 		flash[:success] = "Goodbye!"
+		# respond_to do |format|
+		# 	format.js
+		# end
 		redirect_to root_path
 	end
 
