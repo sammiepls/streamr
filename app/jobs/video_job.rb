@@ -47,7 +47,7 @@ class VideoJob < ApplicationJob
           channel_id: stream.channel_id, channel_title: stream.channel_title, streamer: stream.streamer)
         end
         Video.last.update(vid_id: stream.stream_id, vid_title: stream.stream_title,
-          channel_id: stream.channel_id, vid_duration: 0)
+          channel_id: stream.channel_id, channel_title: stream.channel_title, vid_duration: 0)
         stream.destroy
       end
     end 
