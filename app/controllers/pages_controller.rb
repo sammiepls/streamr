@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
 
+  def welcome
+  end
+
   def home
     # Ahoy Vists
     ahoy.track_visit

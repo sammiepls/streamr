@@ -2,7 +2,7 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
-  mount Sidekiq::Web => '/sidekiq' 
+  mount Sidekiq::Web => '/sidekiq'
   root "pages#home"
   get '/update' => "pages#update_video"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #   patch 'pages_totalvisits' => 'pages#totalvisits'
   # end
   get '/voting' => "pages#voting"
+  get '/welcome' => "pages#welcome"
 
   get "/login", to: redirect("/auth/google_oauth2")
   get "/auth/google_oauth2/callback", to: "sessions#create"
