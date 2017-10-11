@@ -13,11 +13,9 @@
 
   <body>
     <%= render "layouts/navigation" %>
+
+
     <div id="flash">
-      <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%=h value %></div>
-        <%= javascript_tag "$('#flash_#{key}').fadeOut(5000);" %>
-      <% end %>
     </div>
     <%= render "layouts/affiliates" %>
     <%= yield %>
