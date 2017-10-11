@@ -14,8 +14,11 @@ class UsersController < ApplicationController
 
       # redirect_to login_path and return
       respond_to do |format|
-        format.html { redirect_to login_path and return}
+
+        format.js { render js: "window.location = '#{login_path}'"}
+        # format.html { redirect_to login_path and return}
       end
+      # redirect_to login_path, format: 'js'
     else
 
     current_user.update_token
@@ -30,6 +33,7 @@ class UsersController < ApplicationController
 
         respond_to do |format|
           format.js
+          format.html { redirect_to root_path }
         end
     # session[:channel_id] = nil
     # redirect_to root_path
