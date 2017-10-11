@@ -13,6 +13,9 @@
   color: #fff;
   transition: 0.5s;
   cursor: pointer;
+  &:hover, &:focus {
+    background: rgba(darken($green,20%),.9);
+  }
   &:before,&:after {
     content: '';
     position: absolute;
