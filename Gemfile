@@ -71,7 +71,7 @@ gem 'sidekiq'
 gem "redis-rails", github: 'redis-store/redis-rails'
 gem 'redis', '~> 3.3'
 # gem 'redis-namespace'
-gem 'redis-store'
+gem 'redis-store', '>=1.4.0'
 
 # Jquery
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
