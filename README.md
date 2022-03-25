@@ -1,24 +1,24 @@
-# README
+# Streamr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The final project created during [Next Academy's](https://www.nextacademy.com/) bootcamp. See it here: https://streamr-next.herokuapp.com/
 
-Things you may want to cover:
+## What is it? 
+Our theme was eSports. Our group came up with the idea of an app to help promote smaller streamers to get more views. 
 
-* Ruby version
+The concept was to show a live-streamer with a low view count's video in our app using the YouTube API for 1 minute. 
+Viewers could then vote during this time to prolong the stream, or the video would change to a different streamer. If more than 50% of viewers opt to change, then it would continue for another minute
 
-* System dependencies
+Viewers can use the live chat feature to discuss amongst themselves.
 
-* Configuration
+## Built with: 
+- Ruby on Rails
+- Bootstrap (but make it custom) 
+- JavaScript
+- ActionCable for live chat
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Built with ❤️ by: 
+- [@sammiepls](https://github.com/sammiepls)
+- [@wkitsin](https://github.com/wkitsin)
+- [@estherleongym](https://github.com/estherleongym)
+- [@wheng3](https://github.com/wheng3)
+- Nyall Livett 
